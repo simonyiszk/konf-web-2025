@@ -14,8 +14,10 @@ export default function Home() {
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="absolute top-36 right-32 pr-8 pt-8 ">
-        <h1 className="2xl:text-9xl text-lg">2025.03.18.</h1>
+      <div className="absolute top-36 right-32 pr-12 pt-12">
+        <h1 className="2xl:text-9xl xl:text-8xl text-5xl md:text-7xl">
+          2025.03.18.
+        </h1>
         <Image
           src="/logo.svg"
           alt="Konferencia Logo"
@@ -30,7 +32,7 @@ export default function Home() {
           <h1>Konferencia</h1>
         </header>
         <div className="flex items-center flex-col">
-          <div className="flex flex-col gap-6 px-14 w-fit ">
+          <div className="flex flex-col gap-6 px-14 w-fit pt-24">
             <Button
               text="XXI. Simonyi Konferencia"
               href="https://xxi.konferencia.simonyi.bme.hu/"

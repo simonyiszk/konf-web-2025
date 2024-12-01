@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cygrotesk.className} antialiased h-screen`}>
+      <body
+        className={`${cygrotesk.className} antialiased h-screen max-h-screen overflow-y-hidden`}
+      >
         {children}
       </body>
     </html>
