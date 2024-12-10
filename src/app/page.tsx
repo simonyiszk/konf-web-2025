@@ -63,7 +63,7 @@ export default function Home() {
             />
             <Button
               text="Instagram"
-              href="https://www.instagram.com/simonyikonferencia/"
+              href="https://www.instagram.com/simonyikonf"
             />
             <Button
               text="Facebook"
