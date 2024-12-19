@@ -1,19 +1,9 @@
 import Image from "next/image";
 import Button from "./components/button";
-import { Inter_Tight } from "next/font/google";
-import localFont from "next/font/local";
 
-const cygrotesk = localFont({
-  src: "./fonts/CyGrotesk.woff",
-  fallback: ["sans-serif"],
-});
-
-const interTight = Inter_Tight({
-  subsets: ["latin"],
-});
 export default function Home() {
   return (
-    <div className={`flex flex-row h-full w-full ${interTight.className}`}>
+    <div className={`flex flex-row h-full w-full`}>
       <div className="flex-1 hidden sm:block">
         <Image
           src="/web_0_hatter.webp"
@@ -26,7 +16,7 @@ export default function Home() {
       </div>
       <div className="absolute top-36 right-32 invisible sm:visible">
         <h1
-          className={`2xl:text-9xl xl:text-8xl text-5xl md:text-7xl ${cygrotesk.className}`}
+          className={`2xl:text-9xl xl:text-8xl text-5xl md:text-7xl font-cygrotesk`}
         >
           2025.03.18.
         </h1>
