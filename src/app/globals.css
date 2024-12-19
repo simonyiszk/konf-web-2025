@@ -2,7 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@layer base {
+  :root {
+    --konf-background: #DEE2D5;
+    --konf-foreground: #31292F;
+    --konf-primary: #476D8E;
+    --konf-accent: #8D212E;
+  }
+
+  .dark {
+    --konf-background: #31292F;
+    --konf-foreground: #F18A4E;
+    --konf-primary: #F2C46C;
+    --konf-accent: #78A5BE;
+  }
+}
+
+
+  :root {
   --background: #0a0a0a;
   --foreground: #ededed;
 }

@@ -11,6 +11,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        konf: {
+          background: "var(--konf-background)",
+          foreground: "var(--konf-foreground)",
+          primary: "var(--konf-primary)",
+          accent: "var(--konf--accent)",
+        },
+      },
       fontFamily: {
         cygrotesk: ["var(--font-cygrotesk)"],
         interTight: ["var(--font-inter-tight)"],
