@@ -7,8 +7,8 @@ export const metadata: Metadata = {
     template: "Simonyi Konferencia - %s",
   },
   authors: {
-    name: "Kir-Dev",
-    url: "https://kir-dev.hu",
+    name: "Simonyi Károly Szakkollégium",
+    url: "https://simonyi.bme.hu",
   },
   description:
     "Magyarország legnagyobb egyetemi hallgatók által szervezett éves technológiai konferenciája.",
