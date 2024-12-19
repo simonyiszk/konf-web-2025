@@ -1,5 +1,12 @@
 import Image from "next/image";
 import Button from "./components/button";
+import { socialLinks } from "./utils/constants";
+
+const socials = [
+  socialLinks.konfSitePrevious,
+  socialLinks.instagram,
+  socialLinks.facebook,
+];
 
 export default function Home() {
   return (
@@ -47,34 +54,16 @@ export default function Home() {
               <h1>03.</h1>
               <h1>18.</h1>
             </div>
-            <Button
-              text="XXI. Simonyi Konferencia"
-              href="https://xxi.konferencia.simonyi.bme.hu/"
-            />
-            <Button
-              text="Instagram"
-              href="https://www.instagram.com/simonyikonf"
-            />
-            <Button
-              text="Facebook"
-              href="https://www.facebook.com/simonyikonferencia"
-            />
+            {socials.map((e) => (
+              <Button key={e.href} {...e} />
+            ))}
           </div>
         </div>
         <div className="absolute top-1/2 flex flex-col items-center self-center  sm:visible invisible">
           <div className="flex flex-col gap-6 w-fit">
-            <Button
-              text="XXI. Simonyi Konferencia"
-              href="https://xxi.konferencia.simonyi.bme.hu/"
-            />
-            <Button
-              text="Instagram"
-              href="https://www.instagram.com/simonyikonf"
-            />
-            <Button
-              text="Facebook"
-              href="https://www.facebook.com/simonyikonferencia"
-            />
+            {socials.map((e) => (
+              <Button key={e.href} {...e} />
+            ))}
           </div>
         </div>
         <footer className="flex flex-row justify-between">
