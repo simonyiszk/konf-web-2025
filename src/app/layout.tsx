@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import localFont from "next/font/local";
+import { Inter_Tight } from "next/font/google";
 
 export const metadata: Metadata = {
   title: {
@@ -18,14 +20,30 @@ export const metadata: Metadata = {
     "google-site-verification": "IEdi66LPaMH1EMd-iMpGGl13QKlQTBIFTNL7TEv2tY8",
   },
 };
+
+const cygrotesk = localFont({
+  src: "./fonts/CyGrotesk.woff",
+  fallback: ["sans-serif"],
+  variable: "--font-cygrotesk",
+});
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-inter-tight",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={"antialiased h-screen max-h-screen overflow-y-hidden"}>
+    <html lang="hu" className={`${cygrotesk.variable} ${interTight.variable}`}>
+      <body
+        className={
+          "antialiased h-screen max-h-screen overflow-y-hidden font-interTight"
+        }
+      >
         {children}
       </body>
     </html>

@@ -1,19 +1,16 @@
 import Image from "next/image";
 import Button from "./components/button";
-import { Inter_Tight } from "next/font/google";
-import localFont from "next/font/local";
+import { socialLinks } from "./utils/constants";
 
-const cygrotesk = localFont({
-  src: "./fonts/CyGrotesk.woff",
-  fallback: ["sans-serif"],
-});
+const socials = [
+  socialLinks.konfSitePrevious,
+  socialLinks.instagram,
+  socialLinks.facebook,
+];
 
-const interTight = Inter_Tight({
-  subsets: ["latin"],
-});
 export default function Home() {
   return (
-    <div className={`flex flex-row h-full w-full ${interTight.className}`}>
+    <div className={`flex flex-row h-full w-full`}>
       <div className="flex-1 hidden sm:block">
         <Image
           src="/web_0_hatter.webp"
@@ -26,7 +23,7 @@ export default function Home() {
       </div>
       <div className="absolute top-36 right-32 invisible sm:visible">
         <h1
-          className={`2xl:text-9xl xl:text-8xl text-5xl md:text-7xl ${cygrotesk.className}`}
+          className={`2xl:text-9xl xl:text-8xl text-5xl md:text-7xl font-cygrotesk`}
         >
           2025.03.18.
         </h1>
@@ -57,34 +54,16 @@ export default function Home() {
               <h1>03.</h1>
               <h1>18.</h1>
             </div>
-            <Button
-              text="XXI. Simonyi Konferencia"
-              href="https://xxi.konferencia.simonyi.bme.hu/"
-            />
-            <Button
-              text="Instagram"
-              href="https://www.instagram.com/simonyikonf"
-            />
-            <Button
-              text="Facebook"
-              href="https://www.facebook.com/simonyikonferencia"
-            />
+            {socials.map((e) => (
+              <Button key={e.href} {...e} />
+            ))}
           </div>
         </div>
         <div className="absolute top-1/2 flex flex-col items-center self-center  sm:visible invisible">
           <div className="flex flex-col gap-6 w-fit">
-            <Button
-              text="XXI. Simonyi Konferencia"
-              href="https://xxi.konferencia.simonyi.bme.hu/"
-            />
-            <Button
-              text="Instagram"
-              href="https://www.instagram.com/simonyikonf"
-            />
-            <Button
-              text="Facebook"
-              href="https://www.facebook.com/simonyikonferencia"
-            />
+            {socials.map((e) => (
+              <Button key={e.href} {...e} />
+            ))}
           </div>
         </div>
         <footer className="flex flex-row justify-between">
