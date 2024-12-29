@@ -41,7 +41,7 @@ export default function RootLayout({
     <html lang="hu" className={`${cygrotesk.variable} ${interTight.variable}`}>
       <body
         className={
-          "antialiased h-screen max-h-screen overflow-y-hidden font-interTight"
+          "dark antialiased min-h-svh overflow-y-hidden font-interTight bg-konf-background text-konf-foreground"
         }
       >
         {children}
