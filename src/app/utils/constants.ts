@@ -15,6 +15,10 @@ export const socialLinks = {
     text: "Instagram",
     href: "https://www.instagram.com/simonyikonf",
   },
+  simonyiYoutube: {
+    text: "Youtube",
+    href: "https://www.youtube.com/@SimonyiSzakkoli",
+  },
 } as const;
 
 // set exact datetime when we know the start hour

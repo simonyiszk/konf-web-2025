@@ -1,6 +1,7 @@
 import KonfLogo from "@/app/components/svg/konfLogo";
-import { konfDate } from "@/app/utils/constants";
+import { konfDate, socialLinks } from "@/app/utils/constants";
 import { SVGProps } from "react";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa6";
 
 function Cirlce({
   filled,
@@ -86,6 +87,17 @@ export function HeroVariant1() {
       <h2 className="text-2xl md:text-5xl text-center">
         {konfDate.toLocaleDateString("hu")}
       </h2>
+      <div className="flex flex-row gap-2 justify-center text-5xl">
+        <a href={socialLinks.facebook.href}>
+          <FaFacebook />
+        </a>
+        <a href={socialLinks.instagram.href}>
+          <FaInstagram />
+        </a>
+        <a href={socialLinks.simonyiYoutube.href}>
+          <FaYoutube />
+        </a>
+      </div>
     </section>
   );
 }
