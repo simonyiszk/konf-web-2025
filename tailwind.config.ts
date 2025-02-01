@@ -23,6 +23,9 @@ export default {
         interTight: ["var(--font-inter-tight)"],
       },
     },
+    boxShadow: {
+      ticket: "5px 10px var(--foreground)",
+    },
   },
   plugins: [],
 } satisfies Config;

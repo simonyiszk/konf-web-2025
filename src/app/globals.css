@@ -4,24 +4,23 @@
 
 @layer base {
   :root {
-    --konf-background: #DEE2D5;
-    --konf-foreground: #31292F;
-    --konf-primary: #476D8E;
-    --konf-accent: #8D212E;
+    --konf-background: #dee2d5;
+    --konf-foreground: #31292f;
+    --konf-primary: #476d8e;
+    --konf-accent: #8d212e;
   }
 
   .dark {
-    --konf-background: #31292F;
-    --konf-foreground: #F18A4E;
-    --konf-primary: #F2C46C;
-    --konf-accent: #78A5BE;
+    --konf-background: #31292f;
+    --konf-foreground: #f18a4e;
+    --konf-primary: #f2c46c;
+    --konf-accent: #78a5be;
   }
 }
 
-
-  :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+:root {
+  --background: #31292f;
+  --foreground: #f18a4e;
 }
 
 body {

@@ -1,76 +1,32 @@
-import Image from "next/image";
-import Button from "./components/button";
-import { socialLinks } from "./utils/constants";
+import { Ticket } from "@/components/hero/ticket";
+import CountdownTile from "@/components/tiles/countdown-tile/countdown-tile";
+import MapTile from "@/components/tiles/map-tile/map-tile";
+import { WorkshopTile } from "@/components/tiles/workshop-tile";
 
-const socials = [
-  socialLinks.konfSitePrevious,
-  socialLinks.instagram,
-  socialLinks.facebook,
-];
-
-export default function Home() {
+export default async function Landing() {
+  // const data = await getIndexData();
+  // if (!data) {
+  //   redirect("/error");
+  // }
   return (
-    <div className={`flex flex-row h-full w-full`}>
-      <div className="flex-1 hidden sm:block">
-        <Image
-          src="/web_0_hatter.webp"
-          alt="Simonyi Konferencia"
-          width={4061}
-          height={3366}
-          sizes="100vh"
-          className="h-full w-full object-cover"
-        />
-      </div>
-      <div className="absolute top-36 right-32 invisible sm:visible">
-        <h1
-          className={`2xl:text-9xl xl:text-8xl text-5xl md:text-7xl font-cygrotesk`}
-        >
-          2025.03.18.
-        </h1>
-        <Image
-          src="/logo.svg"
-          alt="Konferencia Logo"
-          width={60}
-          height={60}
-          className="absolute top-0 right-0 md:w-14 md:h-14 xl:w-16 xl:h-16 h-12 w-12 -translate-y-1/2 translate-x-full"
-        />
-      </div>
-      <main className="w-full sm:w-1/2 lg:w-1/3 flex flex-col justify-between p-4">
-        <header className="flex flex-row justify-between">
-          <h2>Simonyi</h2>
-          <h2>Konferencia</h2>
-        </header>
-        <div className="h-full justify-center flex flex-col items-center self-center sm:invisible visible">
-          <div className="flex flex-col gap-6 w-fit">
-            <div className="flex flex-col items-center relative">
-              <Image
-                src="/logo.svg"
-                alt="Konferencia Logo"
-                width={30}
-                height={30}
-                className="absolute top-0 right-0 -translate-y-1/2 translate-x-full"
-              />
-              <h1>2025.</h1>
-              <h1>03.</h1>
-              <h1>18.</h1>
-            </div>
-            {socials.map((e) => (
-              <Button key={e.href} {...e} />
-            ))}
+    <div className="flex-grow relative flex flex-col justify-center items-center self-stretch overflow-hidden">
+      <Ticket />
+      <div className="relative">
+        <div className="relative">
+          <div className="grid grid-cols-1 sm:grid-cols-6 max-w-6xl w-full mt-40 gap-6 px-4 sm:px-6 xl:px-0">
+            <CountdownTile />
+            <WorkshopTile />
+            <MapTile />
           </div>
         </div>
-        <div className="absolute top-1/2 flex flex-col items-center self-center  sm:visible invisible">
-          <div className="flex flex-col gap-6 w-fit">
-            {socials.map((e) => (
-              <Button key={e.href} {...e} />
-            ))}
-          </div>
-        </div>
-        <footer className="flex flex-row justify-between">
-          <h2>Konferencia</h2>
-          <h2>Simonyi</h2>
-        </footer>
-      </main>
+        {/* {data.previousConferences.conferences.length > 0 && (
+          <ImageCarouselSection data={data.previousConferences} />
+        )} */}
+      </div>
+      {/* <SponsorSection
+        companies={data.sponsors.companies}
+        sectionTitle={data.sponsors.sectionTitle}
+      /> */}
     </div>
   );
 }
