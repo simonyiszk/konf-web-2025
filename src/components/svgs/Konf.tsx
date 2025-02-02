@@ -1,10 +1,20 @@
-export default function KonfLogo({ className }: { className?: string }) {
+export default function KonfLogo({
+  className,
+  width,
+  height,
+}: {
+  className?: string;
+  width?: number;
+  height?: number;
+}) {
   return (
     <svg
       id="Layer_1"
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 22.88 28.9"
+      width={width || 23}
+      height={height || 29}
       className={className}
     >
       <defs></defs>

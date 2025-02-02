@@ -9,14 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.5",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "lucide-react": "^0.474.0",
     "next": "15.0.3",
     "next-plausible": "^3.12.4",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-icons": "^5.4.0",
     "react-snap-carousel": "^0.5.1",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7",
     "yet-another-react-lightbox": "^3.21.7"
   },
   "devDependencies": {
