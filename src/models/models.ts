@@ -32,7 +32,7 @@ export interface Presenter {
   company?: Company;
 }
 
-export interface Presentation {
+export interface PresentationModel {
   slug: string;
   title: string;
   presenter: Presenter;
@@ -46,7 +46,7 @@ export interface Presentation {
   placeholder?: boolean;
 }
 
-export interface PresentationWithDates extends Presentation {
+export interface PresentationWithDates extends PresentationModel {
   startDate: Date;
   endDate: Date;
 }
@@ -94,7 +94,7 @@ export interface IndexPageData {
   featuredPresentation: {
     sectionTitle: string;
     description: string;
-    presentation: Presentation;
+    presentation: PresentationModel;
   };
-  presentations: Presentation[];
+  presentations: PresentationModel[];
 }
