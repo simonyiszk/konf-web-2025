@@ -1,6 +1,6 @@
 import { getIndexData } from "@/models/get-index-data";
 
-import { Presentation, PresentationWithDates } from "./models";
+import { PresentationModel, PresentationWithDates } from "./models";
 
 async function getPresentationBreaks() {
   const res = await fetch(`${process.env.BACKEND_URL}/proto/breaks`, {
@@ -20,7 +20,7 @@ export async function getPresentationData(): Promise<
   if (!indexData || !indexData.presentations) {
     return;
   }
-  const breaks: Presentation[] = await getPresentationBreaks();
+  const breaks: PresentationModel[] = await getPresentationBreaks();
   if (!breaks) {
     return;
   }
@@ -28,7 +28,7 @@ export async function getPresentationData(): Promise<
     ...presentation,
     placeholder: true,
   }));
-  const allPresentations: Presentation[] = [
+  const allPresentations: PresentationModel[] = [
     ...indexData.presentations,
     ...placeholders,
   ];
