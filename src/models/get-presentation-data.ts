@@ -3,9 +3,13 @@ import { getIndexData } from "@/models/get-index-data";
 import { PresentationModel, PresentationWithDates } from "./models";
 
 async function getPresentationBreaks() {
-  const res = await fetch(`${process.env.BACKEND_URL}/proto/breaks`, {
-    next: { revalidate: 30 * 60 },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/proto/breaks`,
+    {
+      next: { revalidate: 30 * 60 },
+    }
+  );
+  console.log(res);
   if (!res.ok) {
     console.error(res);
     return;

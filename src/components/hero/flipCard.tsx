@@ -21,7 +21,7 @@ export default function FlipCard() {
 
   return (
     <div
-      className="relative w-[900px] h-[400px] cursor-pointer"
+      className="relative w-[900px] h-[400px]"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
