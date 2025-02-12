@@ -32,6 +32,16 @@ export interface Presenter {
   company?: Company;
 }
 
+export interface Break {
+  slug: string;
+  title: string;
+  room: "IB028" | "IB025" | "BOTH";
+  language: "en" | "hu";
+  startTime: string;
+  endTime: string;
+  placeholder?: boolean;
+}
+
 export interface PresentationModel {
   slug: string;
   title: string;
@@ -41,12 +51,21 @@ export interface PresentationModel {
   startTime: string;
   endTime: string;
   description: string;
-  questionsUrl: string; // még kérdéses, hogy így lesz-e
+  videoUrl: string;
   imageUrls?: string[];
   placeholder?: boolean;
 }
 
+export interface Delay {
+  delay: number;
+}
+
 export interface PresentationWithDates extends PresentationModel {
+  startDate: Date;
+  endDate: Date;
+}
+
+export interface BreakWithDates extends Break {
   startDate: Date;
   endDate: Date;
 }
@@ -91,10 +110,14 @@ export interface IndexPageData {
     companies: Company[];
   };
   organisers: Organiser[];
-  featuredPresentation: {
-    sectionTitle: string;
-    description: string;
-    presentation: PresentationModel;
-  };
   presentations: PresentationModel[];
+}
+
+export interface StreamData {
+  title: string;
+  youtubeUrl: string;
+}
+
+export interface InterviewData extends StreamData {
+  link: string;
 }

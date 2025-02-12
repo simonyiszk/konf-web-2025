@@ -1,20 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import konfLogo from "../../../public/logo.svg";
 import { SocialButtons } from "./social-buttons";
+import KonfLogo from "../svgs/Konf";
 
 export function Footer() {
   return (
     <footer className="max-w-6xl mx-auto mt-24 w-full flex flex-col gap-10 mb-10 px-8 xl:px-0 overflow-hidden">
       <div className="flex flex-col md:flex-row gap-6 justify-between">
         <div className="flex flex-col gap-4 w-full md:w-1/2 ">
-          <Image
-            src={konfLogo}
-            width={560}
-            height={135}
-            alt="Simonyi Konferencia"
-          />
+          <div className="flex flex-row justify-start items-center gap-2">
+            <KonfLogo className="fill-[--foreground]" width={80} height={100} />
+            <h1 className="font-bold leading-tight">
+              Simonyi
+              <br />
+              Konferencia
+            </h1>
+          </div>
           <p className="font-bold text-xl sm:text-2xl text-center md:text-left">
             Magyarország legnagyobb egyetemi hallgatók által szervezett éves
             technológiai konferenciája.
@@ -32,9 +34,6 @@ export function Footer() {
           <Link href="/giveaway" className="brand-link">
             Nyereményjáték
           </Link>
-          {/* <Link href='https://golya.konferencia.bme.hu' target='blank' className='brand-link'>
-            Gólyáknak
-          </Link> */}
           <Link href="/conferences" className="brand-link">
             Előző évek konferenciái
           </Link>

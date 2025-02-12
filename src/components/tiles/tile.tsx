@@ -1,6 +1,6 @@
-import clsx from 'clsx';
+import clsx from "clsx";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 type Props = {
   children: React.ReactNode;
@@ -14,9 +14,9 @@ function TileBase({ children, className, clickable, disableMinHeight }: Props) {
     <div
       className={clsx(
         styles.card,
-        'overflow-hidden relative p-[1.5px]',
-        clickable && styles['card-clickable'],
-        !disableMinHeight && 'min-h-[225px]',
+        "overflow-hidden relative p-[1.5px]",
+        clickable && styles["card-clickable"],
+        !disableMinHeight && "min-h-[225px]",
         className
       )}
     >
@@ -35,9 +35,9 @@ function TileBody({ children, className, lessPadding }: TileBodyProps) {
   return (
     <div
       className={clsx(
-        styles['card-body'],
-        lessPadding ? `p-${lessPadding}` : 'p-6 sm:p-10',
-        'w-full h-full',
+        styles["card-body"],
+        lessPadding ? `p-${lessPadding}` : "p-6 sm:p-10",
+        "w-full h-full",
         className
       )}
     >

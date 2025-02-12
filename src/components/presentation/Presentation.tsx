@@ -64,9 +64,8 @@ export default async function Presentation({
                   {description}
                 </p>
                 <div className="flex flex-col sm:flex-row">
-                  {imageUrls?.map((image) => {
+                  {imageUrls?.map((image: string) => {
                     return (
-                      // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={image}
                         key={image}
@@ -123,6 +122,14 @@ export default async function Presentation({
                 </div>
               )}
             </div>
+          </div>
+          <div className="sm:w-full md:w-6/7 lg:w-5/6 mx-auto mt-8">
+            {presentation.videoUrl && !isFrontPage && (
+              <YoutubeVideo
+                title={presentation.title}
+                url={presentation.videoUrl}
+              />
+            )}
           </div>
         </div>
         {isFrontPage && (

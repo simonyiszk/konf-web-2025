@@ -1,6 +1,8 @@
 import { getIndexData } from "@/models/get-index-data";
 
 import { PresentationModel, PresentationWithDates } from "./models";
+import { breaksData } from "./static/breaksData";
+import { conferenceData } from "./static/conferenceData";
 
 async function getPresentationBreaks() {
   const res = await fetch(
@@ -21,10 +23,12 @@ export async function getPresentationData(): Promise<
   PresentationWithDates[] | undefined
 > {
   const indexData = await getIndexData();
+  const staticPresentations = conferenceData.presentations;
   if (!indexData || !indexData.presentations) {
     return;
   }
-  const breaks: PresentationModel[] = await getPresentationBreaks();
+  // const breaks: Presentation[] = await getPresentationBreaks();
+  const breaks = breaksData as PresentationModel[];
   if (!breaks) {
     return;
   }
@@ -33,7 +37,7 @@ export async function getPresentationData(): Promise<
     placeholder: true,
   }));
   const allPresentations: PresentationModel[] = [
-    ...indexData.presentations,
+    ...staticPresentations,
     ...placeholders,
   ];
   const merged = allPresentations.map((presentation) => ({
