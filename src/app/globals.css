@@ -44,6 +44,7 @@ h1 {
       320px,
       1fr
     );
+  width: 100%;
 }
 .no-scrollbar {
   scrollbar-width: none;
