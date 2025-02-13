@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { MobilAppData } from "@/models/models";
-import { Tile } from "./tile";
 import { Ticket } from "../hero/ticket";
 
 type Props = {
