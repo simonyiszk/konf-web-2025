@@ -9,6 +9,7 @@ import slugify from "@/utils/slugify";
 
 import uk from "../../../public/img/uk.svg";
 import { Tile } from "../tiles/tile";
+import { YoutubeVideo } from "../tiles/youtube-video";
 
 type PresentationProps = {
   presentation: PresentationModel;
