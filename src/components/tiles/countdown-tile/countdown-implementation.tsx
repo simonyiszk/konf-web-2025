@@ -19,8 +19,8 @@ export default function CountdownTileImplementation() {
   }, [target]);
   return (
     <>
-      <div className="flex flex-row flex-wrap justify-center gap-4">
-        <h1>
+      <div className="flex flex-row flex-wrap justify-between gap-4">
+        <h1 className="text-2xl font-bold leading-tight inline">
           {duration.months ? (duration.days ?? 0) + 30 : duration.days}
           {" : "}
           {duration.hours ? String(duration.hours).padStart(2, "0") : "00"}
@@ -28,6 +28,9 @@ export default function CountdownTileImplementation() {
           {duration.minutes ? String(duration.minutes).padStart(2, "0") : "00"}
           {" : "}
           {duration.seconds ? String(duration.seconds).padStart(2, "0") : "00"}
+        </h1>
+        <h1 className="text-2xl font-bold leading-tight inline">
+          Jelentkezés
         </h1>
       </div>
     </>

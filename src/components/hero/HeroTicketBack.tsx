@@ -9,7 +9,7 @@ export default function HeroTicketBack() {
           className="font-bold flex flex-row p-4 px-6 bg-[--foreground] transition-all text-[--background] items-center "
           href="/register"
         >
-          <h1>Regisztráció</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl">Regisztráció</h1>
           <ArrowRightSquare className="inline ml-2 h-4/5 w-fit" />
         </a>
       </div>

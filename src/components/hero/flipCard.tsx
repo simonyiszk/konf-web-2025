@@ -20,8 +20,9 @@ export default function FlipCard() {
   };
 
   return (
+  <>
     <div
-      className="relative w-[900px] h-[400px]"
+      className="relative hidden lg:block w-[900px] h-[400px]"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -46,5 +47,9 @@ export default function FlipCard() {
         <HeroTicketBack />
       </animated.div>
     </div>
+    <div className="block lg:hidden">
+      <HeroTicketBack/>
+    </div>
+  </>
   );
 }
