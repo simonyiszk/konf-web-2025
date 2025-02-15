@@ -3,6 +3,7 @@ import { animated, useSpring } from "@react-spring/web";
 import React, { useState } from "react";
 import HeroTicketFront from "./HeroTicketFront";
 import HeroTicketBack from "./HeroTicketBack";
+import HeroTicketSmall from "@/components/hero/HeroTicketSmall";
 
 export default function FlipCard() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -47,8 +48,8 @@ export default function FlipCard() {
         <HeroTicketBack />
       </animated.div>
     </div>
-    <div className="block lg:hidden">
-      <HeroTicketBack/>
+    <div className="block lg:hidden ">
+      <HeroTicketSmall/>
     </div>
   </>
   );
