@@ -4,6 +4,8 @@ import GiveAway from "@/components/giveaway/giveaway";
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import GoogleCaptchaWrapper from "./google-captcha-wrapper";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPageWrapped() {
   return (
@@ -14,36 +16,53 @@ export default function RegisterPageWrapped() {
 }
 
 function RegisterPage() {
+  const router = useRouter();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const handleSubmitForm = function (e: any) {
+    setError("");
     e.preventDefault();
+    if (!name || !email) {
+      return;
+    }
     if (!executeRecaptcha) {
       console.log("Execute recaptcha not available yet");
-
       return;
     }
     executeRecaptcha("enquiryFormSubmit").then((gReCaptchaToken) => {
+      console.log("gReCaptchaToken", gReCaptchaToken);
       submitEnquiryForm(gReCaptchaToken);
     });
   };
 
   const submitEnquiryForm = (gReCaptchaToken: string) => {
     async function goAsync() {
-      const response = await axios({
-        method: "post",
-        url: "/api/contactFormSubmit",
-        data: {
-          name: name,
-          email: email,
-          gRecaptchaToken: gReCaptchaToken,
-        },
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-      });
+      try {
+        const response = await axios({
+          method: "post",
+          url: "/api/register",
+          data: {
+            name: name,
+            email: email,
+            gRecaptchaToken: gReCaptchaToken,
+          },
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+          },
+        });
+        if (response.data.success) {
+          console.log("sikeres regisztráció");
+          router.push("/register/success");
+        } else {
+          console.log("szar van");
+          setError(response.data.message);
+        }
+      } catch (e: unknown) {
+        setError(e.response?.data.message);
+      }
     }
     goAsync().then(() => {}); // suppress typescript error
   };
@@ -87,6 +106,7 @@ function RegisterPage() {
             >
               Regisztráció
             </button>
+            {error && <p className="text-red-600">{error}</p>}
           </form>
           <GiveAway />
         </div>
