@@ -3,15 +3,17 @@ import CountdownTileImplementation from "@/components/tiles/countdown-tile/count
 
 export default function RegisterPage() {
   return (
-    <div className="flex justify-center items-center h-screen ">
+    <div className="flex justify-center items-center h-screen pt-24 md:pt-28">
       <div className="bg-[#dee2d4] flex flex-col p-4 px-8 text-[--background] relative">
-        <div className="absolute w-full h-full opacity-80 bg-black top-0 left-0 flex flex-col justify-center text-center items-center z-50 text-[--foreground]">
-          <h1>
-            A regisztráció <br />
-            <b className="text-white">02.18 18:00</b>
-            <br /> indul
+        <div className="absolute w-full h-full opacity-80 bg-black top-0 left-0 flex flex-col justify-center text-center items-center z-10 text-[--foreground]">
+          <div className="mb-16">
+            <CountdownTileImplementation />
+          </div>
+          <h1 className="text-3xl text-gray-300">
+            A regisztráció kezdete
+            <br />
+            <b className="text-gray-300">02.18 18:00</b>
           </h1>
-          <CountdownTileImplementation />
         </div>
         <h1>REGISZTRÁCIÓ</h1>
         <div className="flex flex-row gap-16 p-16 h-2/3 justify-center items-center relative">

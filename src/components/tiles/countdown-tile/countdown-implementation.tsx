@@ -22,9 +22,12 @@ export default function CountdownTileImplementation() {
     <>
       <div className="flex flex-row flex-wrap justify-center gap-4">
         <h1>
-          {duration.months ? (duration.days ?? 0) + 30 : duration.days}
-          {" : "}
-          {duration.hours ? String(duration.hours).padStart(2, "0") : "00"}
+          {duration.hours
+            ? String(duration.hours + (duration.days || 0) * 24).padStart(
+                2,
+                "0"
+              )
+            : "00"}
           {" : "}
           {duration.minutes ? String(duration.minutes).padStart(2, "0") : "00"}
           {" : "}

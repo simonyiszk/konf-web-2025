@@ -14,6 +14,10 @@ const links = [
     label: "nyereményjáték",
   },
   {
+    href: "/register",
+    label: "regisztráció",
+  },
+  {
     href: "/contact",
     label: "kapcsolat",
   },
