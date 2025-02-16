@@ -10,12 +10,12 @@ const links = [
     label: "előadások",
   },
   {
-    href: "/contact",
-    label: "kapcsolat",
+    href: "/giveaway",
+    label: "nyereményjáték",
   },
   {
-    href: `${process.env.NEXT_PUBLIC_BACKEND_URL}/oauth2/authorization/google`,
-    label: "bejelentkezés",
+    href: "/contact",
+    label: "kapcsolat",
   },
 ];
 

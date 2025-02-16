@@ -22,6 +22,7 @@ export default async function Landing() {
       {/* {data.previousConferences.conferences.length > 0 && (
           <ImageCarouselSection data={data.previousConferences} />
         )} */}
+      {/* <PromoVideoTile data={data.promoVideo} /> */}
       <SponsorSection
         companies={data.sponsors.companies}
         sectionTitle={data.sponsors.sectionTitle}
