@@ -1,5 +1,6 @@
 import Hero from "@/components/hero/Hero";
 import { SponsorSection } from "@/components/sponsors/sponsor-section";
+import { PromoVideoTile } from "@/components/tiles/promo-video-tile";
 import { getIndexData } from "@/models/get-index-data";
 import { redirect } from "next/navigation";
 
@@ -22,7 +23,7 @@ export default async function Landing() {
       {/* {data.previousConferences.conferences.length > 0 && (
           <ImageCarouselSection data={data.previousConferences} />
         )} */}
-      {/* <PromoVideoTile data={data.promoVideo} /> */}
+      <PromoVideoTile data={data.promoVideo} />
       <SponsorSection
         companies={data.sponsors.companies}
         sectionTitle={data.sponsors.sectionTitle}
