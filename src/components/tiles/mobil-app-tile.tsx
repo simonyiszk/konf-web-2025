@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { MobilAppData } from "@/models/models";
 import { Ticket } from "../hero/ticket";
 
