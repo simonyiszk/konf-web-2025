@@ -1,4 +1,5 @@
 import Hero from "@/components/hero/Hero";
+import { SponsorSection } from "@/components/sponsors/sponsor-section";
 import { MobilAppTile } from "@/components/tiles/mobil-app-tile";
 import { getIndexData } from "@/models/get-index-data";
 import { redirect } from "next/navigation";
@@ -10,8 +11,7 @@ export default async function Landing() {
   }
   const appData = data.mobilApp;
   return (
-    <div>
-      {/* <HeroTicketFront /> */}
+    <div className="flex-grow relative flex flex-col justify-center items-center w-full">
       <Hero />
       <MobilAppTile data={appData} />
       {/* <div className="relative">
@@ -25,10 +25,10 @@ export default async function Landing() {
       {/* {data.previousConferences.conferences.length > 0 && (
           <ImageCarouselSection data={data.previousConferences} />
         )} */}
-      {/* <SponsorSection
+      <SponsorSection
         companies={data.sponsors.companies}
         sectionTitle={data.sponsors.sectionTitle}
-      /> */}
+      />
     </div>
   );
 }

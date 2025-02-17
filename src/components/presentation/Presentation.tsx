@@ -43,14 +43,14 @@ export default async function Presentation({
           {!isFrontPage && (
             <div>
               <h1 className="mb-2 hyphens-auto sm:hyphens-none">{title}</h1>
-              <p className="mb-8 text-[25px] font-bold block md:hidden text-[#FFE500]">{`${presentation.room}${time}`}</p>
+              <p className="mb-8 text-[25px] font-bold block md:hidden text-[--background]">{`${presentation.room}${time}`}</p>
             </div>
           )}
           <div className="flex flex-col md:flex-row gap-8">
             {!isFrontPage && (
               <div>
-                <p className="mb-8 text-[25px] font-bold hidden md:block text-[#FFE500]">{`${presentation.room}${time}`}</p>
-                <p className="text-stone-200 text-base sm:text-[20px] whitespace-pre-line">
+                <p className="mb-8 text-[25px] font-bold hidden md:block text-[--background]">{`${presentation.room}${time}`}</p>
+                <p className="text-[--background] text-base sm:text-[20px] whitespace-pre-line">
                   {description}
                 </p>
               </div>
@@ -60,7 +60,7 @@ export default async function Presentation({
                 <p className="mb-2 text-3xl sm:text-[40px] font-bold leading-10">
                   {title}
                 </p>
-                <p className="mb-8 text-[22px] font-bold text-[#FFE500]">{`${presentation.room}${time}`}</p>
+                <p className="mb-8 text-[22px] font-bold text-[--background]">{`${presentation.room}${time}`}</p>
                 <p className="text-stone-200 text-base sm:text-[20px] whitespace-pre-line">
                   {description}
                 </p>
@@ -95,10 +95,10 @@ export default async function Presentation({
                 )}
                 alt="Presentation Image"
               />
-              <p className="block mt-4 text-[32px] leading-tight font-bold text-white-900">
+              <p className="block mt-4 text-[32px] leading-tight font-bold text-[--foreground]-900">
                 {presenter.name}
               </p>
-              <p className="block mt-0.5 text-[20px]  text-[#FFE500]">
+              <p className="block mt-0.5 text-[20px]  text-[--background]">
                 {presenter.rank}
               </p>
               {presenter.company && (
@@ -137,7 +137,7 @@ export default async function Presentation({
           <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-center pt-6 justify-center">
             <Link
               href={`/presentations/${slugify(presentation.title)}`}
-              className="inline-flex items-center font-semibold text-xl text-white brand-link"
+              className="inline-flex items-center font-semibold text-xl text-[--foreground] brand-link"
             >
               Részletek
               <svg
@@ -158,7 +158,7 @@ export default async function Presentation({
             </Link>
             <Link
               href={"/presentations"}
-              className="inline-flex items-center font-semibold text-xl text-white brand-link"
+              className="inline-flex items-center font-semibold text-xl text-[--foreground] brand-link"
             >
               Összes előadás
               <svg

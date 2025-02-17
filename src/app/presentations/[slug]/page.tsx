@@ -56,7 +56,7 @@ export default async function PresentationBySlug({
   }
 
   return (
-    <div className="mt-10 px-4 sm:px-6 xl:px-0 overflow-hidden">
+    <div className="px-4 sm:px-6 xl:px-0 overflow-hidden mt-24 md:mt-28">
       <Presentation presentation={presentation} />
     </div>
   );
