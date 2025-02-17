@@ -23,11 +23,11 @@ export default async function Landing() {
         </div>
         </div>
         </div> */}
+      <PromoVideoTile data={data.promoVideo} />
+      <MobilAppTile data={appData} />
       {data.previousConferences.conferences.length > 0 && (
         <ImageCarouselSection data={data.previousConferences} />
       )}
-      <PromoVideoTile data={data.promoVideo} />
-      <MobilAppTile data={appData} />
       <SponsorSection
         companies={data.sponsors.companies}
         sectionTitle={data.sponsors.sectionTitle}
