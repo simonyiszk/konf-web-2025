@@ -34,9 +34,9 @@ export function Footer() {
           <Link href="/giveaway" className="brand-link">
             Nyereményjáték
           </Link>
-          <Link href="/conferences" className="brand-link">
+          {/* <Link href="/conferences" className="brand-link">
             Előző évek konferenciái
-          </Link>
+          </Link> */}
           <Link
             href="https://simonyi.bme.hu"
             target="blank"

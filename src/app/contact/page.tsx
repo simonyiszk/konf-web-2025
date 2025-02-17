@@ -9,7 +9,9 @@ export default async function asyncontact() {
   if (!data) {
     redirect("/error");
   }
-  const sortedOrganizers = data.organisers.sort((o) => o.priority);
+  const sortedOrganizers = data.organisers.sort(
+    (a, b) => b.priority - a.priority
+  );
 
   const org = {
     main: sortedOrganizers.filter((o) => o.priority === 0),
