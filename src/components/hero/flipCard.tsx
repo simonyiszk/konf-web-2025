@@ -3,6 +3,7 @@ import { animated, useSpring } from "@react-spring/web";
 import React, { useState } from "react";
 import HeroTicketFront from "./HeroTicketFront";
 import HeroTicketBack from "./HeroTicketBack";
+import HeroTicketSmall from "@/components/hero/HeroTicketSmall";
 
 export default function FlipCard() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -20,31 +21,36 @@ export default function FlipCard() {
   };
 
   return (
-    <div
-      className="relative w-[900px] h-[400px]"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <animated.div
-        style={{ opacity: opacity.to((o) => 1 - o), transform }}
-        className={`absolute inset-0 w-full h-full ${
-          isFlipped ? "pointer-events-none" : ""
-        }`}
+    <>
+      <div
+        className="relative hidden lg:block w-[900px] h-[400px]"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <HeroTicketFront />
-      </animated.div>
-      <animated.div
-        style={{
-          opacity,
-          transform,
-          rotateX: "180deg",
-        }}
-        className={`absolute inset-0 w-full h-full ${
-          !isFlipped ? "pointer-events-none" : ""
-        }`}
-      >
-        <HeroTicketBack />
-      </animated.div>
-    </div>
+        <animated.div
+          style={{ opacity: opacity.to((o) => 1 - o), transform }}
+          className={`absolute inset-0 w-full h-full ${
+            isFlipped ? "pointer-events-none" : ""
+          }`}
+        >
+          <HeroTicketFront />
+        </animated.div>
+        <animated.div
+          style={{
+            opacity,
+            transform,
+            rotateX: "180deg",
+          }}
+          className={`absolute inset-0 w-full h-full ${
+            !isFlipped ? "pointer-events-none" : ""
+          }`}
+        >
+          <HeroTicketBack />
+        </animated.div>
+      </div>
+      <div className="block lg:hidden h-2/3">
+        <HeroTicketSmall />
+      </div>
+    </>
   );
 }
