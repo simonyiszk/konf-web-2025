@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import { Inter_Tight } from "next/font/google";
+import PlausibleProvider from "next-plausible";
+import { Navbar } from "@/components/navbar/navbar";
+import { Footer } from "@/components/footer/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -39,12 +42,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu" className={`${cygrotesk.variable} ${interTight.variable}`}>
-      <body
-        className={
-          "antialiased h-screen max-h-screen overflow-y-hidden font-interTight"
-        }
-      >
-        {children}
+      <body className={"font-interTight"}>
+        <PlausibleProvider
+          domain="konferencia.simonyi.bme.hu"
+          customDomain={process.env.NEXT_PUBLIC_PLAUSIBLE_URL}
+          selfHosted
+        />
+        <main className="flex flex-col min-h-screen">
+          <Navbar />
+          <div className="flex-grow relative flex flex-col justify-center items-center w-full">
+            {children}
+          </div>
+          <Footer />
+        </main>
       </body>
     </html>
   );

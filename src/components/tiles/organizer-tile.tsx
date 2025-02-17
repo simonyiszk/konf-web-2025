@@ -1,0 +1,27 @@
+import { Organiser } from "@/models/models";
+
+import { Tile } from "./tile";
+
+type Props = Organiser;
+
+export function OrganiserTile({ name, emailAddress, pictureUrl, rank }: Props) {
+  return (
+    <Tile>
+      <Tile.Body lessPadding="3">
+        <div className="flex flex-col h-full ">
+          <img
+            src={pictureUrl}
+            className="w-full aspect-square object-cover object-center"
+          />
+          <div className="rounded-b-[30px] pt-4 px-3 pb-9 flex flex-col h-full gap-2 ">
+            <h2 className="text-center text-3xl font-extrabold ">{name}</h2>
+            <h2 className="text-center text-2xl font-bold">{rank}</h2>
+            <p className="text-center text-base sm:text-sm md:text-base lg:text-sm xl:text-base text-[--background]">
+              {emailAddress}
+            </p>
+          </div>
+        </div>
+      </Tile.Body>
+    </Tile>
+  );
+}

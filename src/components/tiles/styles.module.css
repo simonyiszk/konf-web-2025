@@ -1,0 +1,28 @@
+.card {
+  --rotation: 150deg;
+  --border-rounding: 30px;
+
+  background: rgb(222, 226, 212);
+  background-origin: border-box;
+}
+
+.card-body {
+  z-index: 1;
+  position: relative;
+}
+
+.card-clickable:hover .card-body::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+}
+
+.card-clickable:hover .card-body:hover::before {
+  opacity: 1;
+}

@@ -4,24 +4,24 @@
 
 @layer base {
   :root {
-    --konf-background: #DEE2D5;
-    --konf-foreground: #31292F;
-    --konf-primary: #476D8E;
-    --konf-accent: #8D212E;
+    --konf-background: #dee2d5;
+    --konf-foreground: #31292f;
+    --konf-primary: #476d8e;
+    --konf-accent: #8d212e;
   }
 
   .dark {
-    --konf-background: #31292F;
-    --konf-foreground: #F18A4E;
-    --konf-primary: #F2C46C;
-    --konf-accent: #78A5BE;
+    --konf-background: #31292f;
+    --konf-foreground: #f18a4e;
+    --konf-primary: #f2c46c;
+    --konf-accent: #78a5be;
   }
 }
 
-
-  :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+:root {
+  --background: #31292f;
+  --foreground: #f18a4e;
+  --beige: #dee2d5;
 }
 
 body {
@@ -36,4 +36,35 @@ h2 {
 h1 {
   font-family: "cygrotesk", "cygrotesk Fallback", sans-serif;
   font-size: 3rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+.presentation-grid {
+  display: grid;
+  justify-items: start;
+  align-content: stretch;
+  grid-template-columns: fit-content(16rem) minmax(320px, 1fr) minmax(
+      320px,
+      1fr
+    );
+  width: 100%;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.tile {
+  @apply p-6 sm:p-10 min-h-[225px];
+  border-radius: 30px;
+  border: 1px solid var(--test-stroke, #fff);
+  background: var(
+    --test-item,
+    radial-gradient(
+      165.3% 70.64% at 49.87% 50.22%,
+      rgba(255, 255, 255, 0.1) 14.5%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    #101010
+  );
 }
