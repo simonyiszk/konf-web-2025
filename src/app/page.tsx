@@ -1,18 +1,14 @@
 import Hero from "@/components/hero/Hero";
 import { MobilAppTile } from "@/components/tiles/mobil-app-tile";
-import { MobilAppData } from "@/models/models";
+import { getIndexData } from "@/models/get-index-data";
+import { redirect } from "next/navigation";
 
-//export default async function Landing() {
-// const data = await getIndexData();
-// if (!data) {
-//   redirect("/error");
-// }
 export default async function Landing() {
-  const appData: MobilAppData = {
-    iosUrl: "https://apps.apple.com/hu/app/konferenciapp/id123456789",
-    description: "",
-    androidUrl: "",
-  };
+  const data = await getIndexData();
+  if (!data) {
+    redirect("/error");
+  }
+  const appData = data.mobilApp;
   return (
     <div>
       {/* <HeroTicketFront /> */}
