@@ -1,16 +1,16 @@
 import Image from "next/image";
 export default function GiveAway() {
   return (
-    <div className="flex flex-col gap-4 items-center">
-      <h1 className="text-4xl">NYEREMÉNYJÁTÉK*</h1>
+    <div className="flex flex-col gap-4 items-center max-md:w-full">
+      <h1 className="text-2xl lg:text-4xl">NYEREMÉNYJÁTÉK*</h1>
       <Image
         src="/register/nintendo.svg"
         width={800}
         height={400}
         alt="Nintendo"
       />
-      <h1 className="text-4xl">NINTENDO SWITCH</h1>
-      <div className="flex flex-row gap-4 items-center justify-center">
+      <h1 className="text-xl lg:text-3xl">NINTENDO SWITCH</h1>
+      <div className="flex flex-col lg:flex-row gap-4 items-center justify-center">
         <Image
           src="/register/monitor.svg"
           width={100}

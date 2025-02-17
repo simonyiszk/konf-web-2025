@@ -31,8 +31,8 @@ export function NavbarMobile() {
   }, []);
 
   return (
-    <nav className="md:hidden overflow-hidden">
-      <div className="w-full px-5 py-3 fixed top-0 z-20" onClick={onLinkClick}>
+    <nav className="md:hidden overflow-hidden ">
+      <div className="w-full px-5 py-3 sticky top-0 z-20" onClick={onLinkClick}>
         <div
           id="mobile-nav-container"
           className={clsx(
