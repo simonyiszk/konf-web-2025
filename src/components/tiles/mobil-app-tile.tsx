@@ -7,7 +7,7 @@ type Props = {
 
 export function MobilAppTile({ data }: Props) {
   return (
-    <div className="hover:scale-105 transition-transform duration-200 ease-in-out w-[900px] h-[400px]">
+    <div className="hover:scale-105 transition-transform duration-200 ease-in-out w-[900px] h-[400px] pb-12">
       <Ticket>
         <div className="border-[--bg-konf-foreground] lg:p-8 w-full">
           <h1 className="text-2xl sm:text-[28px] text-[--bg-konf-foreground] pb-4">
