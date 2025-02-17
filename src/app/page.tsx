@@ -1,4 +1,5 @@
 import Hero from "@/components/hero/Hero";
+import { ImageCarouselSection } from "@/components/image-carousel/image-carousel-section";
 import { SponsorSection } from "@/components/sponsors/sponsor-section";
 import { MobilAppTile } from "@/components/tiles/mobil-app-tile";
 import { PromoVideoTile } from "@/components/tiles/promo-video-tile";
@@ -22,9 +23,9 @@ export default async function Landing() {
         </div>
         </div>
         </div> */}
-      {/* {data.previousConferences.conferences.length > 0 && (
-          <ImageCarouselSection data={data.previousConferences} />
-          )} */}
+      {data.previousConferences.conferences.length > 0 && (
+        <ImageCarouselSection data={data.previousConferences} />
+      )}
       <PromoVideoTile data={data.promoVideo} />
       <MobilAppTile data={appData} />
       <SponsorSection
