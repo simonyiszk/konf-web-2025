@@ -32,7 +32,7 @@ function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const handleSubmitForm = function (e: any) {
+  const handleSubmitForm = function (e: Event) {
     setError("");
     e.preventDefault();
     if (!name || !email) {
