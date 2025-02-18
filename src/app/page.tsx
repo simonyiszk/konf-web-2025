@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Hero from "@/components/hero/Hero";
 import { ImageCarouselSection } from "@/components/image-carousel/image-carousel-section";
 import { SponsorSection } from "@/components/sponsors/sponsor-section";
