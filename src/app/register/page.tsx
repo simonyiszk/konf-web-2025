@@ -6,8 +6,8 @@ import { useMemo } from "react";
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import GoogleCaptchaWrapper from "./google-captcha-wrapper";
-import axios from "axios";
 import { useRouter } from "next/navigation";
+import { register } from "../actions";
 
 export default function RegisterPageWrapped() {
   return (
@@ -17,10 +17,12 @@ export default function RegisterPageWrapped() {
   );
 }
 
-function getErrorMessage(error: string) {
-  switch (error) {
+function getErrorMessage(status: string) {
+  switch (status) {
     case "FORM_NOT_AVAILABLE":
-      return "Még nem nyílt meg a regisztráció!";
+      return "A regisztráció jelenleg nem elérhető";
+    case "INVALID_VALUES":
+      return "Az email cím vagy a név nem megfelelő";
   }
   return "Hiba történt a regisztráció során";
 }
@@ -46,32 +48,15 @@ function RegisterPage() {
   };
 
   const submitEnquiryForm = (gReCaptchaToken: string) => {
-    async function goAsync() {
-      try {
-        const response = await axios({
-          method: "post",
-          url: process.env.NEXT_PUBLIC_BACKEND_URL + "/form/register",
-          data: {
-            name: name,
-            email: email,
-            gRecaptchaToken: gReCaptchaToken,
-          },
-          headers: {
-            Accept: "application/json, text/plain, */*",
-            "Content-Type": "application/json",
-          },
-        });
-        if (response.data.success) {
+    register({ email, name, recaptchaToken: gReCaptchaToken }).then(
+      (status) => {
+        if (status === "OK") {
           router.push("/register/success");
         } else {
-          setError(getErrorMessage(response.data));
+          setError(getErrorMessage(status));
         }
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {
-        setError(getErrorMessage(""));
       }
-    }
-    goAsync().then(() => {}); // suppress typescript error
+    );
   };
 
   const target = useMemo(() => new Date(2025, 1, 18, 18, 0), []);
