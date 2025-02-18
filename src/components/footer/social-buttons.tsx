@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaEnvelope, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaEnvelope, FaFacebook, FaInstagram } from "react-icons/fa";
 
 export function SocialButtons() {
   return (
