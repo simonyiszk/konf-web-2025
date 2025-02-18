@@ -17,6 +17,13 @@ export default function RegisterPageWrapped() {
   );
 }
 
+function getErrorMessage(error: string) {
+  switch (error) {
+    case "FORM_NOT_AVAILABLE":
+      return "Még nem nyílt meg a regisztráció!";
+  }
+  return "Hiba történt a regisztráció során";
+}
 function RegisterPage() {
   const router = useRouter();
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -34,7 +41,6 @@ function RegisterPage() {
       return;
     }
     executeRecaptcha("enquiryFormSubmit").then((gReCaptchaToken) => {
-      console.log("gReCaptchaToken", gReCaptchaToken);
       submitEnquiryForm(gReCaptchaToken);
     });
   };
@@ -44,7 +50,7 @@ function RegisterPage() {
       try {
         const response = await axios({
           method: "post",
-          url: "/api/register",
+          url: process.env.NEXT_PUBLIC_BACKEND_URL + "/form/register",
           data: {
             name: name,
             email: email,
@@ -56,13 +62,13 @@ function RegisterPage() {
           },
         });
         if (response.data.success) {
-          console.log("sikeres regisztráció");
           router.push("/register/success");
         } else {
-          setError(response.data.message);
+          setError(getErrorMessage(response.data));
         }
-      } catch (e: unknown) {
-        setError("Hiba történt a regisztráció során");
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {
+        setError(getErrorMessage(""));
       }
     }
     goAsync().then(() => {}); // suppress typescript error
@@ -114,14 +120,19 @@ function RegisterPage() {
                 onChange={(e) => setEmail(e?.target?.value)}
               />
             </div>
-
-            <button
-              type="submit"
-              className="w-full font-bold py-3 bg-[--background] transition-all text-[--foreground] hover:scale-[1.1]"
-            >
-              Regisztráció
-            </button>
-            {error && <p className="text-red-600">{error}</p>}
+            <div className="relative">
+              <button
+                type="submit"
+                className="w-full font-bold py-3 bg-[--background] transition-all text-[--foreground] hover:scale-[1.1]"
+              >
+                Regisztráció
+              </button>
+              {error && (
+                <p className="text-red-600 absolute -bottom-2 translate-y-full w-full text-center">
+                  {error}
+                </p>
+              )}
+            </div>
           </form>
           <div className="">
             <GiveAway />
