@@ -1,7 +1,6 @@
 export const dynamic = "force-dynamic";
 import Hero from "@/components/hero/Hero";
 import { ImageCarouselSection } from "@/components/image-carousel/image-carousel-section";
-import { SponsorSection } from "@/components/sponsors/sponsor-section";
 import { MobilAppTile } from "@/components/tiles/mobil-app-tile";
 import { PromoVideoTile } from "@/components/tiles/promo-video-tile";
 import { getIndexData } from "@/models/get-index-data";
