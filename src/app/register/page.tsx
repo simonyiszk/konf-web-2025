@@ -1,7 +1,7 @@
 "use client";
 import GiveAway from "@/components/giveaway/giveaway";
 import CountdownTileImplementation from "@/components/tiles/countdown-tile/countdown-implementation";
-import { useMemo } from "react";
+import { FormEvent, useMemo } from "react";
 
 import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -32,7 +32,7 @@ function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const handleSubmitForm = function (e: Event) {
+  const handleSubmitForm = function (e: FormEvent<HTMLFormElement>) {
     setError("");
     e.preventDefault();
     if (!name || !email) {
