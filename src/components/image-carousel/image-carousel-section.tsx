@@ -40,8 +40,10 @@ export function ImageCarouselSection({
                   height={200}
                   width={300}
                 />
-                <h1 className="text-2xl font-semibold mt-2">{item.priority}</h1>
-                <h1 className="mt-1 text-md sm:text-sm font-medium text-md">
+                <h1 className="text-2xl font-semibold mt-2 sm:text-md">
+                  {item.priority}
+                </h1>
+                <h1 className="mt-1 text-md sm:text-sm font-medium text-md w-[50vw]">
                   {item.title}
                 </h1>
               </div>
