@@ -5,17 +5,21 @@ const links = [
     href: "/",
     label: "főoldal",
   },
+  // {
+  //   href: "/presentations",
+  //   label: "előadások",
+  // },
   {
-    href: "/presentations",
-    label: "előadások",
+    href: "/giveaway",
+    label: "nyereményjáték",
+  },
+  {
+    href: "/register",
+    label: "regisztráció",
   },
   {
     href: "/contact",
     label: "kapcsolat",
-  },
-  {
-    href: `${process.env.NEXT_PUBLIC_BACKEND_URL}/oauth2/authorization/google`,
-    label: "bejelentkezés",
   },
 ];
 

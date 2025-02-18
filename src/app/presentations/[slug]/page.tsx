@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 

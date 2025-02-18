@@ -25,18 +25,18 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-4 text-center md:text-right text-xl font-medium">
-          <Link href="/presentations" className="brand-link">
+          {/* <Link href="/presentations" className="brand-link">
             Előadások
-          </Link>
+          </Link> */}
           <Link href="/contact" className="brand-link">
             Kapcsolat
           </Link>
           <Link href="/giveaway" className="brand-link">
             Nyereményjáték
           </Link>
-          <Link href="/conferences" className="brand-link">
+          {/* <Link href="/conferences" className="brand-link">
             Előző évek konferenciái
-          </Link>
+          </Link> */}
           <Link
             href="https://simonyi.bme.hu"
             target="blank"
