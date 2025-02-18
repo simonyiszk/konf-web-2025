@@ -17,13 +17,13 @@ export default function CountdownTileImplementation() {
     const interval = setInterval(update, 1000);
     return () => clearInterval(interval);
   }, [target]);
-  const hours = duration.hours ? duration.hours : 0;
-  const hoursWithDays = hours + (duration.days || 0) * 24;
   return (
     <>
       <div className="flex flex-row flex-wrap justify-center gap-4">
         <h1>
-          {String(hoursWithDays).padStart(2, "0")}
+          {duration.days ? String(duration.days).padStart(2, "0") : "00"}
+          {" : "}
+          {duration.hours ? String(duration.hours).padStart(2, "0") : "00"}
           {" : "}
           {duration.minutes ? String(duration.minutes).padStart(2, "0") : "00"}
           {" : "}
