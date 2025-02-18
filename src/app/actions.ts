@@ -17,7 +17,7 @@ export async function register({
     return "INVALID_VALUES";
   }
   const res = await fetch(
-    process.env.NEXT_PUBLIC_BACKEND_URL + "/form/register   ",
+    process.env.NEXT_PUBLIC_BACKEND_URL + "/form/register",
     {
       method: "POST",
       body: JSON.stringify({ email, name }),
