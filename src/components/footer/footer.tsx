@@ -50,20 +50,7 @@ export function Footer() {
       <div className="flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="w-full md:w-auto flex flex-col items-center md:items-start">
           <p className="text-xs mb-2">a weboldalt készítette:</p>
-          <div className="flex items-center gap-8">
-            <Link
-              href="https://schdesign.hu"
-              className="brand-link"
-              target="blank"
-            >
-              <Image
-                className="-mb-2"
-                src="/img/schdesign.svg"
-                alt="schdesign"
-                width={148}
-                height={40}
-              />
-            </Link>
+          <div className="flex items-center gap-8 ">
             <Link
               href="https://kir-dev.hu"
               className="brand-link"
@@ -71,9 +58,22 @@ export function Footer() {
             >
               <Image
                 src="/img/kirdev-inline.svg"
+                className="mb-4"
                 alt="Kir-Dev"
                 width={193}
                 height={40}
+              />
+            </Link>
+            <Link
+              href="https://schdesign.hu"
+              className="brand-link"
+              target="blank"
+            >
+              <Image
+                src="/img/schdesign.svg"
+                alt="schdesign"
+                width={200}
+                height={60}
               />
             </Link>
           </div>

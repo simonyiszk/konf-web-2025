@@ -4,8 +4,7 @@ import { intervalToDuration } from "date-fns";
 import { useEffect, useMemo, useState } from "react";
 
 export default function CountdownTileImplementation() {
-  //const target = useMemo(() => new Date(2025, 2, 18, 12, 0), []); // 2025. 02. 05. 17:00 - start of registration
-  const target = useMemo(() => new Date(2025, 2, 18, 18, 0), []);
+  const target = useMemo(() => new Date(2025, 2, 18, 10, 0), []);
   const [duration, setDuration] = useState(
     intervalToDuration({ start: new Date(), end: target })
   );
