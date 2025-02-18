@@ -48,10 +48,10 @@ export default function RootLayout({
           customDomain={process.env.NEXT_PUBLIC_PLAUSIBLE_URL}
           selfHosted
         />
-        <main className="flex flex-col min-h-screen">
+        <main className="flex flex-col min-h-screen flex-grow  justify-center items-center">
           <Navbar />
           {children}
-          
+
           <Footer />
         </main>
       </body>

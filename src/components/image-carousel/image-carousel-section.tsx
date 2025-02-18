@@ -23,7 +23,7 @@ export function ImageCarouselSection({
   const [index, setIndex] = useState(-1);
   const sortedConferences = conferences.sort((a, b) => b.priority - a.priority);
   return (
-    <div className="my-8 sm:my-20">
+    <div className="my-16 sm:my-40">
       <h1 className="flex justify-center mb-4">{sectionTitle}</h1>
       <div className="w-full max-w-6xl px-4 sm:px-6 xl:px-0">
         <Carousel
@@ -43,7 +43,7 @@ export function ImageCarouselSection({
                 <h1 className="text-2xl font-semibold mt-2 sm:text-md">
                   {item.priority}
                 </h1>
-                <h1 className="mt-1 text-md sm:text-sm font-medium text-md w-[50vw]">
+                <h1 className="mt-1 text-md sm:text-sm font-medium text-md">
                   {item.title}
                 </h1>
               </div>
