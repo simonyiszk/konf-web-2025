@@ -6,12 +6,12 @@ import KonfLogo from "../svgs/Konf";
 
 export function Footer() {
   return (
-    <footer className="mx-8 mt-24 w- flex flex-col gap-10 mb-10 overflow-hidden">
+    <footer className="px-8 py-16 flex flex-col gap-10 overflow-hidden bg-background-800">
       <div className="flex flex-col md:flex-row gap-6 justify-between">
         <div className="flex flex-col gap-4 w-full md:w-1/2 ">
-          <div className="flex flex-row justify-start items-center gap-2">
-            <KonfLogo className="fill-[--foreground]" width={80} height={100} />
-            <h1 className="font-bold leading-tight">
+          <div className="flex flex-row justify-start items-center gap-2 text-primary">
+            <KonfLogo className="fill-primary size-24 shrink-0" />
+            <h1 className="font-bold leading-tight font-cygrotesk">
               Simonyi
               <br />
               Konferencia

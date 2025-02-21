@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu" className={`${cygrotesk.variable} ${interTight.variable}`}>
-      <body className={"font-interTight"}>
+      <body className={"font-interTight bg-background text-text"}>
         <PlausibleProvider
           domain="konferencia.simonyi.bme.hu"
           customDomain={process.env.NEXT_PUBLIC_PLAUSIBLE_URL}
