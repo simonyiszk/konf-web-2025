@@ -22,7 +22,7 @@ export function LocationTile() {
           </address>
           <div className="flex flex-row justify-center gap-4">
             <a
-              className="transition duration-200 hover:text-[#FFE500]"
+              className="transition duration-200 hover:text-secondary"
               href={mapLinks.waze}
               target="_blank"
               rel="noreferrer"
@@ -33,7 +33,7 @@ export function LocationTile() {
               href={mapLinks.google}
               target="_blank"
               rel="noreferrer"
-              className="transition duration-200 hover:text-[#FFE500]"
+              className="transition duration-200 hover:text-secondary"
             >
               <SiGooglemaps className="text-5xl" />
             </a>
