@@ -6,11 +6,11 @@ import KonfLogo from "../svgs/Konf";
 
 export function Footer() {
   return (
-    <footer className="px-8 py-16 flex flex-col gap-10 overflow-hidden bg-background-800">
-      <div className="flex flex-col md:flex-row gap-6 justify-between">
-        <div className="flex flex-col gap-4 w-full md:w-1/2 ">
-          <div className="flex flex-row justify-start items-center gap-2 text-primary">
-            <KonfLogo className="fill-primary size-24 shrink-0" />
+    <footer className="w-full px-8 py-16 flex flex-col gap-10 overflow-hidden bg-background-800">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-between container mx-auto">
+        <div className="flex flex-col gap-4 w-full col-span-1 md:col-span-2">
+          <div className="flex flex-row items-center gap-2 text-primary justify-center md:justify-start">
+            <KonfLogo className="fill-primary size-16 sm:size-24 shrink-0" />
             <h1 className="font-bold leading-tight font-cygrotesk">
               Simonyi
               <br />
@@ -24,7 +24,7 @@ export function Footer() {
           <SocialButtons />
         </div>
 
-        <div className="flex flex-col gap-4 text-center md:text-right text-xl font-medium">
+        <li className="flex flex-col gap-4 text-center md:text-right text-xl font-medium">
           {/* <Link href="/presentations" className="brand-link">
             Előadások
           </Link> */}
@@ -44,10 +44,10 @@ export function Footer() {
           >
             Simonyi Károly Szakkollégium
           </Link>
-        </div>
-      </div>
+        </li>
+      </section>
 
-      <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="w-full md:w-auto flex flex-col items-center md:items-start">
           <p className="text-xs mb-2">a weboldalt készítette:</p>
           <div className="flex items-center gap-8 ">
