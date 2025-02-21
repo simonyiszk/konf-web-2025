@@ -9,7 +9,7 @@ export default function HeroTicketSmall() {
     <Ticket>
       <div className="h-full flex flex-col items-center justify-between">
         <div className="flex flex-row w-full justify-between">
-          <KonfLogo className="fill-[--foreground]" width={80} height={90} />
+          <KonfLogo className="fill-primary" width={80} height={90} />
           <div className="text-2xl font-bold text-center flex flex-col items-center justify-center">
             <p>2025.03.18.</p>
           </div>
@@ -20,7 +20,7 @@ export default function HeroTicketSmall() {
             alt={"https://konferencia.simonyi.bme.hu/"}
           />
         </div>
-        <h1 className="font-bold leading-tight text-2xl sm:text-3xl md:text-4xl text-center pb-4">
+        <h1 className="text-primary font-bold leading-tight text-2xl sm:text-3xl md:text-4xl text-center pb-4">
           Simonyi
           <br />
           Konferencia

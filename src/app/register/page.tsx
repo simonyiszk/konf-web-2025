@@ -63,7 +63,7 @@ function RegisterPage() {
   const showCountDown = target.getTime() > Date.now();
   return (
     <div className="flex justify-center items-center">
-      <div className="bg-[#dee2d4] flex flex-col max-w-6xl p-4 px-8 text-[--background] relative">
+      <div className="bg-background-800 flex flex-col max-w-6xl p-4 px-8  relative">
         {showCountDown && (
           <div className="absolute w-full h-full opacity-80 bg-black top-0 left-0 flex flex-col justify-center text-center items-center z-10 text-[--foreground]">
             <div className="mb-16">

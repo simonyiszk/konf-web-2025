@@ -16,7 +16,7 @@ export function DesktopNavbar() {
         )}
       >
         <Link href="/" className="h-full">
-          <KonfLogo className="fill-[--foreground] h-fit" />
+          <KonfLogo className="fill-text h-fit" />
         </Link>
         <NavbarItems />
       </div>
