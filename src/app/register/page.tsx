@@ -87,7 +87,7 @@ function RegisterPage() {
               <input
                 name="name"
                 type="text"
-                className="w-full bg-transparent border-b-2 border-black focus:outline-none placeholder-[#50494e80] text-xl"
+                className="w-full bg-transparent border-b-2 border-black focus:outline-none text-xl"
                 placeholder="Simonyi Károly"
                 value={name}
                 onChange={(e) => setName(e?.target?.value)}
@@ -99,7 +99,7 @@ function RegisterPage() {
               <input
                 name="email"
                 type="email"
-                className="w-full bg-transparent border-b-2 border-black focus:outline-none placeholder-[#50494e80] text-xl"
+                className="w-full bg-transparent border-b-2 border-black focus:outline-none text-xl"
                 placeholder="simonyi@simony.bme.hu"
                 value={email}
                 onChange={(e) => setEmail(e?.target?.value)}
@@ -108,7 +108,7 @@ function RegisterPage() {
             <div className="relative">
               <button
                 type="submit"
-                className="w-full font-bold py-3 bg-[--background] transition-all text-[--foreground] hover:scale-[1.1]"
+                className="w-full font-bold py-3 bg-primary transition-all hover:scale-[1.1]"
               >
                 Regisztráció
               </button>
