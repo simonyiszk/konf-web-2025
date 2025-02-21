@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 export default {
   content: [
@@ -8,6 +9,9 @@ export default {
   ],
   theme: {
     colors: {
+      white: colors.white,
+      black: colors.black,
+      transparent: "transparent",
       text: {
         50: "var(--text-50)",
         100: "var(--text-100)",
