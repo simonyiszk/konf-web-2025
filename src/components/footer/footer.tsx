@@ -49,7 +49,6 @@ export function Footer() {
 
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="w-full md:w-auto flex flex-col items-center md:items-start">
-          <p className="text-xs mb-2">a weboldalt készítette:</p>
           <div className="flex items-center gap-8 ">
             <Link
               href="https://kir-dev.hu"
