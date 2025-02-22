@@ -19,7 +19,7 @@ export default async function Presentations() {
   }
   const [startDate, endDate] = getStartAndEndDates(presentations);
   return (
-    <div className="flex flex-col max-w-6xl w-full px-4 sm:px-6 xl:px-0 relative">
+    <div className="flex flex-col w-full px-4 sm:px-6 xl:px-0 relative">
       <h1 className="mb-16 mt-8">Előadások</h1>
       <PresentationGrid
         presentations={presentations}

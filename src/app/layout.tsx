@@ -42,18 +42,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu" className={`${cygrotesk.variable} ${interTight.variable}`}>
-      <body className={"font-interTight"}>
+      <body className={"font-interTight bg-background text-text"}>
         <PlausibleProvider
           domain="konferencia.simonyi.bme.hu"
           customDomain={process.env.NEXT_PUBLIC_PLAUSIBLE_URL}
           selfHosted
         />
-        <main className="flex flex-col min-h-screen flex-grow  justify-center items-center">
+        <div className="w-full flex flex-col min-h-screen flex-grow justify-center items-center">
           <Navbar />
-          {children}
-
+          <main className="container mb-10">{children}</main>
           <Footer />
-        </main>
+        </div>
       </body>
     </html>
   );
