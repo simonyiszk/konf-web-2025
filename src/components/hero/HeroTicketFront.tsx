@@ -5,6 +5,10 @@ import Image from "next/image";
 import CountdownTileImplementation from "../tiles/countdown-tile/countdown-implementation";
 
 export default function HeroTicketFront() {
+  const serial = "konf"
+    .split("")
+    .map((e) => e.charCodeAt(0) - "a".charCodeAt(0))
+    .join(" ");
   return (
     <Ticket>
       <div className="h-full flex flex-row items-center w-fit justify-center gap-2">
@@ -30,7 +34,7 @@ export default function HeroTicketFront() {
       </div>
       <div className="flex flex-col justify-between items-center">
         <KonfLogo className="fill-[--foreground]" width={80} height={90} />
-        <div className="text-2xl font-bold rotate-90">012345678</div>
+        <div className="text-2xl font-bold rotate-90">{serial}</div>
         <Image
           src="qr-code.svg"
           width={80}
