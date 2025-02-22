@@ -19,16 +19,22 @@ export default function CountdownTileImplementation() {
   }, [target]);
   return (
     <>
-      <div className="flex flex-row flex-wrap justify-center gap-4">
-        <h1>
+      <div className="grid grid-cols-11 justify-center gap-0 font-cygrotesk text-3xl md:text-5xl place-items-center">
+        <span className="col-span-2">
           {duration.days ? String(duration.days).padStart(2, "0") : "00"}
-          {" : "}
+        </span>
+        <span>{":"}</span>
+        <span className="col-span-2">
           {duration.hours ? String(duration.hours).padStart(2, "0") : "00"}
-          {" : "}
+        </span>
+        <span>{":"}</span>
+        <span className="col-span-2">
           {duration.minutes ? String(duration.minutes).padStart(2, "0") : "00"}
-          {" : "}
+        </span>
+        <span>{":"}</span>
+        <span className="col-span-2">
           {duration.seconds ? String(duration.seconds).padStart(2, "0") : "00"}
-        </h1>
+        </span>
       </div>
     </>
   );
