@@ -1,6 +1,6 @@
-import clsx from 'clsx';
+import clsx from "clsx";
 
-import { Company, SponsorCategory } from '@/models/models';
+import { Company, SponsorCategory } from "@/models/models";
 
 function ConditionalWrapper({
   condition,
@@ -18,7 +18,9 @@ type Props = {
   company: Company;
 };
 
-export function SponsorLogo({ company: { logoUrl, name, url, category } }: Props) {
+export function SponsorLogo({
+  company: { logoUrl, name, url, category },
+}: Props) {
   if (!logoUrl) {
     return null;
   }
@@ -26,17 +28,21 @@ export function SponsorLogo({ company: { logoUrl, name, url, category } }: Props
     <ConditionalWrapper
       condition={!!url}
       renderWrapper={(children) => (
-        <a href={url} target='_blank' rel='noopener noreferrer'>
+        <a href={url} target="_blank" rel="noopener noreferrer">
           {children}
         </a>
       )}
     >
-      <div className='relative p-2 h-full'>
+      <div className="relative p-2 h-full">
         <img
-          loading='lazy'
+          loading="lazy"
           src={logoUrl}
           alt={`${name} logo`}
-          className={clsx(category === SponsorCategory.MAIN_SPONSOR ? '' : 'max-h-[75px]', 'mx-auto my-auto h-full')}
+          height={category === SponsorCategory.MAIN_SPONSOR ? "auto" : "75"}
+          className={clsx(
+            category === SponsorCategory.MAIN_SPONSOR ? "" : "max-h-[75px]",
+            "mx-auto my-auto h-full object-contain block"
+          )}
         />
       </div>
     </ConditionalWrapper>
