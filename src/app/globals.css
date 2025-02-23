@@ -16,7 +16,7 @@
     --text-800: #666600;
     --text-900: #333300;
     --text-950: #191a00;
-    
+
     --background-base: #31292f;
     --background-50: #f3f1f3;
     --background-100: #e8e3e7;
@@ -29,8 +29,8 @@
     --background-800: #382e35;
     --background-900: #1c171b;
     --background-950: #0e0c0d;
-    
-    --primary-base: #F18B50;
+
+    --primary-base: #f18b50;
     --primary-50: #fdefe7;
     --primary-100: #fbe0d0;
     --primary-200: #f7c0a1;
@@ -42,8 +42,8 @@
     --primary-800: #5e2708;
     --primary-900: #2f1404;
     --primary-950: #180a02;
-    
-    --secondary-base: #966B9D;
+
+    --secondary-base: #966b9d;
     --secondary-50: #f4f0f5;
     --secondary-100: #e9e0eb;
     --secondary-200: #d3c2d6;
@@ -55,8 +55,8 @@
     --secondary-800: #3a293d;
     --secondary-900: #1d141f;
     --secondary-950: #0f0a0f;
-    
-    --accent-base: #3C6E71;
+
+    --accent-base: #3c6e71;
     --accent-50: #eef6f6;
     --accent-100: #deeded;
     --accent-200: #bcdadc;
@@ -68,11 +68,8 @@
     --accent-800: #234143;
     --accent-900: #122121;
     --accent-950: #091011;
-    
   }
 }
-
-
 
 h2 {
   font-size: 1.3rem;
@@ -112,4 +109,88 @@ h1 {
     ),
     #101010
   );
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.body {
+  background: linear-gradient(-45deg, #7f452b, #2f282e, #7f6439);
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
+  z-index: 40;
+  transform: translateZ(0);
+  overflow-x: hidden;
+
+  &:before {
+    content: "";
+    top: -10rem;
+    left: -10rem;
+    width: calc(100% + 20rem);
+    height: calc(100%);
+    z-index: 0;
+    position: fixed;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png);
+    opacity: 0.15;
+    pointer-events: none;
+    -webkit-animation: noise 1s steps(2) infinite;
+    animation: noise 1s steps(2) infinite;
+  }
+
+  @-webkit-keyframes noise {
+    to {
+      transform: translate3d(-7rem, 0, 0);
+    }
+  }
+
+  @keyframes noise {
+    0% {
+      transform: translate3d(0, 9rem, 0);
+    }
+    10% {
+      transform: translate3d(-1rem, -4rem, 0);
+    }
+    20% {
+      transform: translate3d(-8rem, 2rem, 0);
+    }
+    30% {
+      transform: translate3d(9rem, -9rem, 0);
+    }
+    40% {
+      transform: translate3d(-2rem, 7rem, 0);
+    }
+    50% {
+      transform: translate3d(-9rem, -4rem, 0);
+    }
+    60% {
+      transform: translate3d(2rem, 6rem, 0);
+    }
+    70% {
+      transform: translate3d(7rem, -8rem, 0);
+    }
+    80% {
+      transform: translate3d(-9rem, 1rem, 0);
+    }
+    90% {
+      transform: translate3d(6rem, -5rem, 0);
+    }
+    to {
+      transform: translate3d(-7rem, 0, 0);
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
