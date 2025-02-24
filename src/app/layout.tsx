@@ -50,7 +50,7 @@ export default function RootLayout({
         />
         <div className="w-full flex flex-col min-h-screen flex-grow justify-center items-center body">
           <Navbar />
-          <main className="container mb-10">{children}</main>
+          {children}
           <Footer />
         </div>
       </body>
