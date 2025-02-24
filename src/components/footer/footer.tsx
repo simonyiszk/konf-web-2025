@@ -6,7 +6,7 @@ import KonfLogo from "../svgs/Konf";
 
 export function Footer() {
   return (
-    <footer className="w-full px-8 py-16 flex flex-col gap-10 overflow-hidden bg-background-800">
+    <footer className="w-full px-8 py-16 flex flex-col gap-10 overflow-hidden bg-background-800 z-10">
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-between container mx-auto">
         <div className="flex flex-col gap-4 w-full col-span-1 md:col-span-2">
           <div className="flex flex-row items-center gap-2 text-primary justify-center md:justify-start">
