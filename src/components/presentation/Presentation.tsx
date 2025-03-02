@@ -29,7 +29,7 @@ export default async function Presentation({
   return (
     <Tile className={clsx(isFrontPage && "sm:col-span-6")}>
       <Tile.Body>
-        <div className="max-w-6xl w-full">
+        <div className="w-full">
           {!isFrontPage && (
             <h3 className="mb-5 w-fit hover:text-brand">
               <Link href={`/presentations`}>
@@ -91,16 +91,10 @@ export default async function Presentation({
                   "object-cover rounded-3xl",
                   isFrontPage
                     ? "w-72 h-72 sm:w-96 sm:h-96"
-                    : "w-[250px] h-[250px] sm:w-[308px] sm:h-[308px]"
+                    : "w-[350px] h-[350px] sm:w-[408px] sm:h-[408px]"
                 )}
                 alt="Presentation Image"
               />
-              <p className="block mt-4 text-[32px] leading-tight font-bold text-[--foreground]-900">
-                {presenter.name}
-              </p>
-              <p className="block mt-0.5 text-[20px]  text-[--background]">
-                {presenter.rank}
-              </p>
               {presenter.company && (
                 <div className="mt-2 bg-white rounded-xl max-w-[308px] max-h-[75px] w-full">
                   <img
