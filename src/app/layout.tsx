@@ -48,7 +48,7 @@ export default function RootLayout({
           customDomain={process.env.NEXT_PUBLIC_PLAUSIBLE_URL}
           selfHosted
         />
-        <div className="w-full flex flex-col min-h-screen flex-grow justify-center items-center">
+        <div className="w-full flex flex-col min-h-screen flex-grow justify-center items-center body">
           <Navbar />
           <main className="container mb-10">{children}</main>
           <Footer />
