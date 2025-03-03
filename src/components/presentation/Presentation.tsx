@@ -80,22 +80,32 @@ export default async function Presentation({
             )}
             <div
               className={clsx(
-                "flex flex-col items-center flex-shrink-0 text-center md:max-w-sm  mt-8",
+                "flex flex-col items-center flex-shrink-0 text-center md:max-w-sm",
                 isFrontPage ? "order-none" : "order-first",
                 "md:order-last"
               )}
             >
-              <img
-                src={presenter.pictureUrl}
+              <div
                 className={clsx(
-                  "object-cover rounded-3xl",
+                  "object-cover aspect-square",
                   isFrontPage
                     ? "w-72 h-72 sm:w-96 sm:h-96"
                     : "w-[350px] h-[350px] sm:w-[408px] sm:h-[408px]"
                 )}
-                alt="Presentation Image"
-              />
-              {presenter.company && (
+              >
+                <img
+                  src={presenter.pictureUrl}
+                  className="object-cover h-full w-full rounded-3xl"
+                  alt="Presentation Image"
+                />
+              </div>
+              <p className="block mt-4 text-[32px] leading-tight font-bold text-[--foreground]-900">
+                {presenter.name}
+              </p>
+              <p className="block mt-0.5 text-[20px]  text-[--background]">
+                {presenter.rank}
+              </p>
+              {presenter.company && presenter.company.logoUrl && (
                 <div className="mt-2 bg-white rounded-xl max-w-[308px] max-h-[75px] w-full">
                   <img
                     src={presenter.company.logoUrl}
