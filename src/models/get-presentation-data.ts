@@ -6,7 +6,7 @@ async function getPresentationBreaks() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/proto/breaks`,
     {
-      next: { revalidate: 30 * 60 },
+      next: { revalidate: 0 },
     }
   );
   if (!res.ok) {
