@@ -31,32 +31,12 @@ export function PresentationGrid({
   return (
     <>
       <div className="flex sticky left-0 top-28 z-10 md:ml-24 flex-row justify-around rounded-b-md mb-8">
-        <button
-          className="rounded-md backdrop-blur-md bg-white bg-opacity-[0.15] py-4 px-6 font-bold text-lg"
-          type="button"
-          onClick={() =>
-            gridRef.current?.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest",
-              inline: "start",
-            })
-          }
-        >
+        <div className="rounded-md backdrop-blur-md bg-white bg-opacity-[0.15] py-4 px-6 font-bold text-lg">
           IB028
-        </button>
-        <button
-          className="rounded-md backdrop-blur-md bg-white bg-opacity-[0.15] py-4 px-6 font-bold text-lg"
-          type="button"
-          onClick={() =>
-            gridRef.current?.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest",
-              inline: "end",
-            })
-          }
-        >
+        </div>
+        <div className="rounded-md backdrop-blur-md bg-white bg-opacity-[0.15] py-4 px-6 font-bold text-lg">
           IB025
-        </button>
+        </div>
       </div>
 
       <div className="overflow-x-auto no-scrollbar flex">
@@ -85,7 +65,7 @@ export function PresentationGrid({
               )}
             </li>
           ))}
-          {[...timeMarkerGenerator(startDate, endDate)].map((markerDate) => (
+          {[...timeMarkerGenerator(presentations)].map((markerDate) => (
             <TimeMarker
               key={markerDate.toString()}
               markerDate={markerDate}
@@ -187,7 +167,7 @@ export function PresentationTile({
   );
 }
 
-const TimeMarkerStepSize = 30 * 60 * 1000; // half an hour
+const TimeMarkerStepSize = 20 * 60 * 1000; // half an hour
 
 function TimeMarker({
   markerDate,
@@ -202,10 +182,7 @@ function TimeMarker({
   return (
     <li
       aria-hidden={true}
-      className={clsx(
-        "snap-start hidden pr-4 md:block",
-        rowStart > 1 && "-translate-y-10"
-      )}
+      className={clsx("snap-start hidden pr-4 md:block")}
       style={{ gridRowStart: rowStart, gridRowEnd: rowEnd }}
     >
       <div className="rounded-md backdrop-blur-md bg-white bg-opacity-[0.15] py-4 px-6 font-bold text-lg">
@@ -214,18 +191,24 @@ function TimeMarker({
     </li>
   );
 }
+function getUniqueDates(datesArray: Date[]): Date[] {
+  const uniqueDates = new Set();
 
-function* timeMarkerGenerator(
-  startDate: number,
-  endDate: number
-): Generator<Date> {
-  const end = Math.floor(endDate / TimeMarkerStepSize) * TimeMarkerStepSize;
-  let currentMarker =
-    Math.ceil(startDate / TimeMarkerStepSize) * TimeMarkerStepSize;
-  while (currentMarker <= end) {
-    yield new Date(currentMarker);
-    currentMarker += TimeMarkerStepSize;
-  }
+  return datesArray.filter((date) => {
+    const dateString = date.toISOString(); // Convert date to string
+    if (!uniqueDates.has(dateString)) {
+      uniqueDates.add(dateString);
+      return true;
+    }
+    return false;
+  });
+}
+
+function timeMarkerGenerator(
+  presentations: (PresentationWithDates | BreakWithDates)[]
+): Date[] {
+  const times = presentations.map((presentation) => presentation.startDate);
+  return getUniqueDates(times);
 }
 
 function getTimeRowPositionInGrid(time: number, startDate: number) {
