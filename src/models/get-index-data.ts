@@ -4,7 +4,7 @@ export async function getIndexData(): Promise<IndexPageData | undefined> {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/conference/index`,
     {
-      next: { revalidate: false },
+      next: { revalidate: 0 },
     }
   );
   if (!res.ok) {
