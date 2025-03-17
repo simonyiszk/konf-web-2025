@@ -1,6 +1,6 @@
 import { PromoVideoData } from "@/models/models";
 
-import { YoutubeVideo } from "./youtube-video";
+import { YoutubeVideo } from "../youtube-video";
 
 type Props = {
   data: PromoVideoData;
