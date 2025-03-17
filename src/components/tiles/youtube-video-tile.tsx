@@ -11,13 +11,13 @@ type Props = {
 };
 export function YoutubeVideoTile({ title, youtubeUrl, link }: Props) {
   return (
-    <div className="md:w-[45%] w-full">
-      <Ticket>
-        <Tile.Body>
+    <div className="xl:w-[45%] w-full">
+      <Ticket className="p-2">
+        <div className="w-full">
           <h1 className="sm:text-2xl md:text-3xl text-center mb-5 capitalize">
             {title}
           </h1>
-          <div className="sm:w-full md:w-6/7 mx-auto mt-2">
+          <div className="sm:w-full flex justify-center mt-2">
             <YoutubeVideo title={title} url={youtubeUrl} />
           </div>
           {link && (
@@ -45,7 +45,7 @@ export function YoutubeVideoTile({ title, youtubeUrl, link }: Props) {
               </Link>
             </div>
           )}
-        </Tile.Body>
+        </div>
       </Ticket>
     </div>
   );

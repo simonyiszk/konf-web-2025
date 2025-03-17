@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import React, { CSSProperties, useRef } from "react";
+import React, { CSSProperties, useRef, useState } from "react";
 import { Tile } from "@/components/tiles/tile";
 import {
   BreakWithDates,
@@ -26,53 +26,107 @@ export function PresentationGrid({
 }) {
   const fullTimespan = Math.abs(endDate - startDate);
   const allGridRows = Math.ceil(fullTimespan / TimespanUnit);
+  const [selectedHall, setSelectedHall] = useState("IB028");
 
   const gridRef = useRef<HTMLUListElement | null>(null);
   return (
     <>
-      <div className="flex sticky left-0 top-28 z-10 md:ml-24 flex-row justify-around rounded-b-md mb-8">
-        <div className="rounded-md backdrop-blur-md bg-white bg-opacity-[0.15] py-4 px-6 font-bold text-lg">
-          IB028
+      <div className="max-md:hidden">
+        <div className="flex sticky left-0 top-28 z-10 md:ml-24 flex-row justify-around rounded-b-md mb-8">
+          <div className="rounded-md backdrop-blur-md bg-white bg-opacity-[0.15] py-4 px-6 font-bold text-lg">
+            IB028
+          </div>
+          <div className="rounded-md backdrop-blur-md bg-white bg-opacity-[0.15] py-4 px-6 font-bold text-lg">
+            IB025
+          </div>
         </div>
-        <div className="rounded-md backdrop-blur-md bg-white bg-opacity-[0.15] py-4 px-6 font-bold text-lg">
-          IB025
+
+        <div className="overflow-x-auto no-scrollbar flex">
+          <ul
+            ref={gridRef}
+            className="presentation-grid snap-x snap-proximity"
+            style={{
+              gridTemplateRows: `repeat(${allGridRows}, ${TimespanUnitHeight})`,
+            }}
+          >
+            {presentations.map((presentation) => (
+              <li
+                key={presentation.slug}
+                className={clsx(
+                  "w-full px-1 pb-4",
+                  presentation.room == "IB028" && "pr-4"
+                )}
+                style={getPresentationCellStyles(startDate, presentation)}
+              >
+                {presentation.placeholder ? (
+                  <PresentationTile presentation={presentation} />
+                ) : (
+                  <Link href={`/presentations/${slugify(presentation.title)}`}>
+                    <PresentationTile presentation={presentation} />
+                  </Link>
+                )}
+              </li>
+            ))}
+            {[...timeMarkerGenerator(presentations)].map((markerDate) => (
+              <TimeMarker
+                key={markerDate.toString()}
+                markerDate={markerDate}
+                startDate={startDate}
+              />
+            ))}
+          </ul>
         </div>
       </div>
-
-      <div className="overflow-x-auto no-scrollbar flex">
-        <ul
-          ref={gridRef}
-          className="presentation-grid snap-x snap-proximity"
-          style={{
-            gridTemplateRows: `repeat(${allGridRows}, ${TimespanUnitHeight})`,
-          }}
-        >
-          {presentations.map((presentation) => (
-            <li
-              key={presentation.slug}
+      <div className="md:hidden">
+        <div className="  sticky left-0 top-28 z-10 flex-row flex justify-center rounded-b-md mb-8">
+          <div className="border rounded-md flex">
+            <button
               className={clsx(
-                "w-full px-1 pb-4",
-                presentation.room == "IB028" && "pr-4"
+                "rounded-md backdrop-blur-md  bg-opacity-[0.15] py-4 px-6 font-bold text-lg",
+                selectedHall === "IB028" && "bg-white"
               )}
-              style={getPresentationCellStyles(startDate, presentation)}
+              onClick={() => setSelectedHall("IB028")}
             >
-              {presentation.placeholder ? (
-                <PresentationTile presentation={presentation} />
-              ) : (
-                <Link href={`/presentations/${slugify(presentation.title)}`}>
-                  <PresentationTile presentation={presentation} />
-                </Link>
+              IB028
+            </button>
+            <button
+              className={clsx(
+                "rounded-md backdrop-blur-md  bg-opacity-[0.15] py-4 px-6 font-bold text-lg hover:bg-gray-200",
+                selectedHall === "IB025" && "bg-white"
               )}
-            </li>
-          ))}
-          {[...timeMarkerGenerator(presentations)].map((markerDate) => (
-            <TimeMarker
-              key={markerDate.toString()}
-              markerDate={markerDate}
-              startDate={startDate}
-            />
-          ))}
-        </ul>
+              onClick={() => setSelectedHall("IB025")}
+            >
+              IB025
+            </button>
+          </div>
+        </div>
+
+        <div className="overflow-x-auto no-scrollbar flex">
+          <ul className="w-full flex flex-col gap-4">
+            {presentations
+              .filter((presentation) => presentation.room === selectedHall)
+              .map((presentation) => (
+                <li key={presentation.slug}>
+                  {presentation.placeholder ? (
+                    <PresentationTile presentation={presentation} />
+                  ) : (
+                    <Link
+                      href={`/presentations/${slugify(presentation.title)}`}
+                    >
+                      <PresentationTile presentation={presentation} />
+                    </Link>
+                  )}
+                </li>
+              ))}
+            {[...timeMarkerGenerator(presentations)].map((markerDate) => (
+              <TimeMarker
+                key={markerDate.toString()}
+                markerDate={markerDate}
+                startDate={startDate}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );

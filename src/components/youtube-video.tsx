@@ -5,10 +5,10 @@ type Props = {
 export function YoutubeVideo({ title, url }: Props) {
   return (
     <iframe
-      className='aspect-video rounded w-full'
+      className="aspect-video rounded w-full"
       src={url}
-      title={'XXI. Simonyi Konferencia - ' + title}
-      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+      title={"XXII. Simonyi Konferencia - " + title}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen
     ></iframe>
   );

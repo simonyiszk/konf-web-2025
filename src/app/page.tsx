@@ -21,14 +21,17 @@ export default async function Landing() {
     <div className="flex-grow relative flex flex-col justify-center items-center w-full">
       <Hero />
       {streams && (
-        <div className="flex flex-col md:flex-row w-full justify-between gap-12 mb-40 items-center">
-          {streams.map((stream) => (
-            <YoutubeVideoTile
-              key={stream.title}
-              title={stream.title}
-              youtubeUrl={stream.youtubeUrl}
-            />
-          ))}
+        <div className="w-full flex flex-col gap-16 items-center">
+          <h1>Kövesd élőben a konferenciát!</h1>
+          <div className="flex flex-col xl:flex-row w-full justify-center gap-16 mb-40 items-center px-8 lg:px-16">
+            {streams.map((stream) => (
+              <YoutubeVideoTile
+                key={stream.title}
+                title={stream.title}
+                youtubeUrl={stream.youtubeUrl}
+              />
+            ))}
+          </div>
         </div>
       )}
       <PromoVideoTile data={data.promoVideo} />
