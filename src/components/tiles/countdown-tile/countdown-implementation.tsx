@@ -1,20 +1,20 @@
 "use client";
 
-import { intervalToDuration } from "date-fns";
+import { intervalToDuration, Duration } from "date-fns";
 import { useEffect, useMemo, useState } from "react";
 
 export default function CountdownTileImplementation() {
   const target = useMemo(() => new Date(2025, 2, 18, 10, 0), []);
-  const [duration, setDuration] = useState(
-    intervalToDuration({ start: new Date(), end: target })
-  );
+  const [duration, setDuration] = useState({} as Duration);
 
   useEffect(() => {
     const update = () => {
       if (target.getTime() > Date.now())
         setDuration(intervalToDuration({ start: new Date(), end: target }));
+      else setDuration({} as Duration);
     };
     const interval = setInterval(update, 1000);
+    update();
     return () => clearInterval(interval);
   }, [target]);
   return (
