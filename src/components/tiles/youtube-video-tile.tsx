@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { Tile } from "@/components/tiles/tile";
 import { YoutubeVideo } from "@/components/youtube-video";
 import { Ticket } from "../hero/ticket";
 
