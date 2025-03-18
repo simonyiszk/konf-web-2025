@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import GoogleCaptchaWrapper from "./google-captcha-wrapper";
 import { useRouter } from "next/navigation";
-import { register } from "../actions";
+import { register } from "../../actions";
 
 export default function RegisterPageWrapped() {
   return (
