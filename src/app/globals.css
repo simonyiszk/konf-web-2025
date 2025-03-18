@@ -75,14 +75,18 @@ h2 {
   font-size: 1.3rem;
   font-weight: 300;
 }
+
 h1 {
   font-family: "cygrotesk", "cygrotesk Fallback", sans-serif;
   font-size: 3rem;
+}
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  h1 {
     font-size: 2rem;
   }
 }
+
 .presentation-grid {
   display: grid;
   justify-items: start;
