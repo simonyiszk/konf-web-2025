@@ -10,9 +10,9 @@ import { getStreams } from "@/models/get-youtube-video-data";
 import { StreamData } from "@/models/models";
 import { redirect } from "next/navigation";
 
-export default async function Landing() {
-  const data = await getIndexData();
-  const streams: StreamData[] | undefined = await getStreams();
+export default function Landing() {
+  const data = getIndexData();
+  const streams: StreamData[] | undefined = getStreams();
   if (!data) {
     redirect("/error");
   }

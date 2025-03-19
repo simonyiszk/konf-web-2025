@@ -15,7 +15,7 @@ type PresentationProps = {
   presentation: PresentationModel;
   isFrontPage?: boolean | undefined;
 };
-export default async function Presentation({
+export default function Presentation({
   presentation,
   isFrontPage,
 }: PresentationProps) {

@@ -1,19 +1,14 @@
-import { StreamData } from "./models";
+import {StreamData} from "./models";
 
-export async function getVideoData(endpoint: string) {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/proto/${endpoint}`,
+export function getStreams(): StreamData[] {
+  return [
     {
-      next: { revalidate: 30 * 60 },
+      title: "IB028",
+      youtubeUrl: "https://www.youtube.com/embed/hU-COarrXfA"
+    },
+    {
+      title: "IB025",
+      youtubeUrl: "https://www.youtube.com/embed/BTNDBsNEq5Y"
     }
-  );
-  if (!response.ok) {
-    console.error(response);
-    return;
-  }
-  return await response.json();
-}
-
-export async function getStreams(): Promise<StreamData[] | undefined> {
-  return getVideoData("streams");
+  ]
 }

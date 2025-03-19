@@ -1,29 +1,13 @@
-import { getIndexData } from "@/models/get-index-data";
+import {getIndexData} from "@/models/get-index-data";
 
-import { PresentationModel, PresentationWithDates } from "./models";
+import {PresentationModel, PresentationWithDates} from "./models";
 
-async function getPresentationBreaks() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/proto/breaks`,
-    {
-      next: { revalidate: 3600 },
-    }
-  );
-  if (!res.ok) {
-    console.error(res);
-    return;
-  }
-  return res.json();
-}
-
-export async function getPresentationData(): Promise<
-  PresentationWithDates[] | undefined
-> {
-  const indexData = await getIndexData();
+export function getPresentationData(): PresentationWithDates[] | undefined {
+  const indexData = getIndexData();
   if (!indexData || !indexData.presentations) {
     return;
   }
-  const breaks: PresentationModel[] = await getPresentationBreaks();
+  const breaks = getPresentationBreaks() as PresentationModel[];
   if (!breaks) {
     return;
   }
@@ -42,4 +26,73 @@ export async function getPresentationData(): Promise<
   }));
   merged.sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
   return merged;
+}
+
+export function getPresentationBreaks() {
+  return [
+    {
+      slug: "forendezoi",
+      title: "Főrendezői köszöntő",
+      room: "IB025",
+      language: "hu",
+      startTime: "2025-03-18T10:00:00+01:00",
+      endTime: "2025-03-18T10:20:00+01:00"
+    },
+    {
+      slug: "megnyito",
+      title: "Megnyitó",
+      room: "IB028",
+      language: "hu",
+      startTime: "2025-03-18T11:50:00+01:00",
+      endTime: "2025-03-18T12:15:00+01:00"
+    },
+    {
+      slug: "szunet1",
+      title: "Szünet",
+      room: "IB025",
+      language: "hu",
+      startTime: "2025-03-18T11:50:00+01:00",
+      endTime: "2025-03-18T12:15:00+01:00"
+    },
+    {
+      slug: "szunet2",
+      title: "Szünet",
+      room: "IB028",
+      language: "hu",
+      startTime: "2025-03-18T13:45:00+01:00",
+      endTime: "2025-03-18T14:15:00+01:00"
+    },
+    {
+      slug: "szunet2b",
+      title: "Szünet",
+      room: "IB025",
+      language: "hu",
+      startTime: "2025-03-18T13:45:00+01:00",
+      endTime: "2025-03-18T14:15:00+01:00"
+    },
+    {
+      slug: "szunet3",
+      title: "Szünet",
+      room: "IB028",
+      language: "hu",
+      startTime: "2025-03-18T15:45:00+01:00",
+      endTime: "2025-03-18T16:15:00+01:00"
+    },
+    {
+      slug: "szunet3b",
+      title: "Szünet",
+      room: "IB025",
+      language: "hu",
+      startTime: "2025-03-18T15:45:00+01:00",
+      endTime: "2025-03-18T16:15:00+01:00"
+    },
+    {
+      slug: "sorsolas",
+      title: "Nyereményjáték sorsolás",
+      room: "IB028",
+      language: "hu",
+      startTime: "2025-03-18T18:15:00+01:00",
+      endTime: "2025-03-18T18:30:00+01:00"
+    }
+  ]
 }

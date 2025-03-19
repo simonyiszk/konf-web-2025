@@ -49,9 +49,10 @@ export interface PresentationModel {
   room: "IB028" | "IB025" | "BOTH";
   language: "en" | "hu";
   startTime: string;
+  questionsUrl: string;
   endTime: string;
   description: string;
-  videoUrl: string;
+  videoUrl?: string;
   imageUrls?: string[];
   placeholder?: boolean;
 }
@@ -110,7 +111,13 @@ export interface IndexPageData {
     companies: Company[];
   };
   organisers: Organiser[];
+  featuredPresentation: FeaturedPresentation;
   presentations: PresentationModel[];
+}
+
+export interface FeaturedPresentation {
+  sectionTitle: string;
+  description: string;
 }
 
 export interface StreamData {
