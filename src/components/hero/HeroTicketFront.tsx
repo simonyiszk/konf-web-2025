@@ -18,7 +18,7 @@ export default function HeroTicketFront() {
           </p>
         </div>
       </div>
-      <div className="flex flex-col justify-between w-2/3">
+      <div className="flex flex-col justify-between w-2/3 py-8">
         <h1 className="font-bold leading-tight text-primary">
           Simonyi
           <br />
