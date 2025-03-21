@@ -2,7 +2,6 @@ import { Ticket } from "./ticket";
 import KonfLogo from "../svgs/Konf";
 import { Barcode } from "../svgs/Barcode";
 import Image from "next/image";
-import CountdownTileImplementation from "../tiles/countdown-tile/countdown-implementation";
 
 export default function HeroTicketFront() {
   const serial = "konf"
@@ -19,7 +18,7 @@ export default function HeroTicketFront() {
           </p>
         </div>
       </div>
-      <div className="flex flex-col justify-between w-2/3">
+      <div className="flex flex-col justify-between w-2/3 py-8">
         <h1 className="font-bold leading-tight text-primary">
           Simonyi
           <br />
@@ -32,7 +31,6 @@ export default function HeroTicketFront() {
             technológiai konferenciája.
           </p>
         </div>
-        <CountdownTileImplementation />
       </div>
       <div className="flex flex-col justify-between items-center">
         <KonfLogo className="fill-primary" width={80} height={90} />

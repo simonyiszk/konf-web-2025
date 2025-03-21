@@ -7,8 +7,8 @@ import { GiveawayTile } from "@/components/tiles/giveaway-tile";
 import { Tile } from "@/components/tiles/tile";
 import { getIndexData } from "@/models/get-index-data";
 
-export default async function Giveaway() {
-  const data = await getIndexData();
+export default function Giveaway() {
+  const data = getIndexData();
   if (!data) {
     redirect("/error");
   }

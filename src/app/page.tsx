@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import Hero from "@/components/hero/Hero";
 import { ImageCarouselSection } from "@/components/image-carousel/image-carousel-section";
 import { SponsorSection } from "@/components/sponsors/sponsor-section";
@@ -10,9 +9,9 @@ import { getStreams } from "@/models/get-youtube-video-data";
 import { StreamData } from "@/models/models";
 import { redirect } from "next/navigation";
 
-export default async function Landing() {
-  const data = await getIndexData();
-  const streams: StreamData[] | undefined = await getStreams();
+export default function Landing() {
+  const data = getIndexData();
+  const streams: StreamData[] | undefined = getStreams();
   if (!data) {
     redirect("/error");
   }

@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "warp.sch.bme.hu",
       },
+      {
+        protocol: "https",
+        hostname: "xxii.konferencia.simonyi.bme.hu",
+      },
     ],
   },
 };

@@ -1,12 +1,11 @@
-export const dynamic = "force-dynamic";
 import { redirect } from "next/navigation";
 
 import { LocationTile } from "@/components/tiles/location-tile";
 import { OrganiserTile } from "@/components/tiles/organizer-tile";
 import { getIndexData } from "@/models/get-index-data";
 
-export default async function asyncontact() {
-  const data = await getIndexData();
+export default function Contact() {
+  const data = getIndexData();
   if (!data) {
     redirect("/error");
   }

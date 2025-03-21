@@ -16,6 +16,3 @@ export const socialLinks = {
     href: "https://www.instagram.com/simonyikonf",
   },
 } as const;
-
-// set exact datetime when we know the start hour
-export const konfDate = new Date("2025-03-18");
