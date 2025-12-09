@@ -1,1 +1,1 @@
-Simonyi Konferencia 2025
+Simonyi Konferencia 2026
